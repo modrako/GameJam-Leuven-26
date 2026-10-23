@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://2jiv4jnq2lkl"]
+
+[ext_resource type="Script" uid="uid://ca5n72k2gcjog" path="res://Scripts/EnemyChaser.gd" id="1_8i4bw"]
+[ext_resource type="Texture2D" uid="uid://8imr7eja5a6a" path="res://Sprites/SpookyOldMan.png" id="2_bbgcn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwlwb"]
+radius = 27.018513
+
+[node name="EnemyChaser" type="CharacterBody2D" unique_id=683529726]
+script = ExtResource("1_8i4bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817923285]
+scale = Vector2(0.1, 0.045)
+texture = ExtResource("2_bbgcn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1246323959]
+shape = SubResource("CircleShape2D_nwlwb")
