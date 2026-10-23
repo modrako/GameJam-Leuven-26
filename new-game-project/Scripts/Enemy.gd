@@ -1,6 +1,6 @@
 @abstract 
 class_name Enemy
-extends Node 
+extends Node2D
 
 @abstract func dealDamage() -> void
 	

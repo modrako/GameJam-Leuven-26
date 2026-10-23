@@ -5,4 +5,12 @@ extends Enemy
 
 
 func dealDamage() -> void:
-	pass
+	print("die")
+func _process(delta: float) -> void:
+	position.move_toward(target.position,speed * delta)
+
+
+
+func _on_on_body_entered(body: Node2D) -> void:
+	if body.name.contains("text"):
+		dealDamage();
