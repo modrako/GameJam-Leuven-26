@@ -6,10 +6,9 @@ extends Enemy
 
 func dealDamage() -> void:
 	print("die")
-func _process(delta: float) -> void:
-	position.move_toward(target.position,speed * delta)
-
-
+	
+func _process(_delta: float) -> void:
+	position = position.move_toward(find.position,speed * delta)
 
 func _on_on_body_entered(body: Node2D) -> void:
 	if body.name.contains("text"):

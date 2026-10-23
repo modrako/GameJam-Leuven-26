@@ -1,18 +1,17 @@
 [gd_scene format=3 uid="uid://cie4blbssxtei"]
 
-[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/Chasing.tscn" id="1_4kk4d"]
+[ext_resource type="Script" uid="uid://ca5n72k2gcjog" path="res://Scripts/EnemyChaser.gd" id="1_foulm"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_foulm"]
+[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="3_h5d2w"]
 
 [node name="EnemyTest" type="Node2D" unique_id=13123263]
+script = ExtResource("1_foulm")
+speed = null
 
-[node name="CharacterBody2D" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("1_4kk4d")]
-position = Vector2(465, 292)
-target = NodePath("../test")
+[node name="EnemyChaser" parent="." unique_id=683529726 instance=ExtResource("3_h5d2w")]
+position = Vector2(629, 428)
+speed = null
 
-[node name="test2" type="Sprite2D" parent="." unique_id=1286451292]
-position = Vector2(998, 292)
-texture = ExtResource("2_foulm")
-
-[node name="test" type="Sprite2D" parent="." unique_id=1476602008]
-position = Vector2(190, 417)
+[node name="Icon" type="Sprite2D" parent="." unique_id=1875227427]
+position = Vector2(401, 318)
 texture = ExtResource("2_foulm")
