@@ -22,8 +22,8 @@ var canJump = false
 
 @export var health := 5
 
-const MAXCHILDREN := 3
-var childCount := 0
+const MAX_CHILDREN := 3
+var collectedChildren = []
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GetGravity() * delta
@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	Jump();
 	
 	move_and_slide()
+	
 
 func Move() -> void:
 	if Input.is_action_pressed("move_left"):
@@ -67,3 +68,9 @@ func GetGravity():
 func on_enemy_hit():
 	health -= 1
 	print(health)
+
+func _on_drop_off_enter(body: Node2D) -> void:
+	if body == self:
+		for i in collectedChildren:
+			i.saved = true
+		collectedChildren.clear()

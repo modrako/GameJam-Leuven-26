@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5ysbtvfmo4w0"]
 
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="1_1vpby"]
+[ext_resource type="PackedScene" uid="uid://dno2lcgn0o41e" path="res://Objects/child.tscn" id="2_6n652"]
 [ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_afu10"]
 [ext_resource type="PackedScene" uid="uid://5u5rgnkyx0nl" path="res://Objects/RoomTrigger.tscn" id="3_afu10"]
 
@@ -10,11 +11,13 @@ size = Vector2(40, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncg1j"]
 size = Vector2(40, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm8rx"]
+
 [node name="TestLevel" type="Node2D" unique_id=1159418298]
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1841270351 instance=ExtResource("1_1vpby")]
-position = Vector2(197, 339)
+position = Vector2(216, 505)
 scale = Vector2(0.6, 0.6)
 collision_mask = 1
 
@@ -33,7 +36,7 @@ color = Color(0.8208052, 0, 0.22230193, 1)
 shape = SubResource("RectangleShape2D_y3r0k")
 
 [node name="Doorway1" type="StaticBody2D" parent="." unique_id=528401596]
-position = Vector2(1021, -32)
+position = Vector2(1061, -32)
 scale = Vector2(1, 13.52)
 
 [node name="ColorRect" type="ColorRect" parent="Doorway1" unique_id=875748838]
@@ -63,7 +66,7 @@ shape = SubResource("RectangleShape2D_ncg1j")
 [node name="Room1" type="Node2D" parent="." unique_id=2090005384]
 
 [node name="CameraMoveTrigger" parent="Room1" unique_id=1163785020 node_paths=PackedStringArray("player", "camera") instance=ExtResource("3_afu10")]
-position = Vector2(1039, 557)
+position = Vector2(1079, 557)
 scale = Vector2(1, 6.2)
 player = NodePath("../../Player")
 camera = NodePath("../../Camera2D")
@@ -76,3 +79,24 @@ position = Vector2(109, 560)
 scale = Vector2(1, 6.2)
 player = NodePath("../../Player")
 camera = NodePath("../../Camera2D")
+
+[node name="Child" parent="." unique_id=1062660865 node_paths=PackedStringArray("player") instance=ExtResource("2_6n652")]
+position = Vector2(491, 503)
+player = NodePath("../Player")
+
+[node name="DropArea" type="Area2D" parent="." unique_id=263626825]
+position = Vector2(62, 544)
+
+[node name="ColorRect" type="ColorRect" parent="DropArea" unique_id=93822797]
+offset_left = -61.0
+offset_top = -60.999996
+offset_right = 19.411713
+offset_bottom = 19.411716
+scale = Vector2(1.5094633, 1.5094633)
+color = Color(0.26768064, 0.72441876, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea" unique_id=680661696]
+scale = Vector2(6.055, 6.055)
+shape = SubResource("RectangleShape2D_hm8rx")
+
+[connection signal="body_entered" from="DropArea" to="Player" method="_on_drop_off_enter"]
