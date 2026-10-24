@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		move_and_collide(moveDirection * speed * delta)
 
 func _on_collect_area_body_entered(body: Node2D) -> void:
-	if body == player and player.childCount < player.MAX_CHILDREN and not isCollected:
+	if body == player and player.collectedChildren.size() < player.MAX_CHILDREN and not isCollected:
 		isCollected = true
 		player.collectedChildren.push_back(self)
 		

@@ -19,8 +19,10 @@ var canJump = false
 #TODO: Jump buffer
 #TODO: Damage feedback
 #TODO: Death
+#TODO: I-frames
 
 @export var health := 5
+@onready var spriteAnim = $AnimatedSprite2D
 
 const MAX_CHILDREN := 3
 var collectedChildren = []
@@ -34,17 +36,29 @@ func _physics_process(delta: float) -> void:
 		canJump = true
 
 	Jump();
+	if not is_on_floor():
+		if velocity.y <= 0:
+			spriteAnim.play("Rise")
+		else:
+			spriteAnim.play("Fall")
+	
+	
 	
 	move_and_slide()
 	
 
 func Move() -> void:
 	if Input.is_action_pressed("move_left"):
+		spriteAnim.flip_h = true
+		spriteAnim.play("Walk")
 		velocity.x = -moveSpeed
 	elif Input.is_action_pressed("move_right"):
+		spriteAnim.flip_h = false
+		spriteAnim.play("Walk")
 		velocity.x = moveSpeed
 	else:
 		velocity.x = 0
+		spriteAnim.play("Idle")
 
 func Jump() -> void:
 	if Input.is_action_just_pressed("move_jump"):
@@ -67,6 +81,7 @@ func GetGravity():
 
 func on_enemy_hit():
 	health -= 1
+	spriteAnim.play("Hurt")
 	print(health)
 
 func _on_drop_off_enter(body: Node2D) -> void:
