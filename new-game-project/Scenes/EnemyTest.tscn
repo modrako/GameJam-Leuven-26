@@ -1,16 +1,33 @@
 [gd_scene format=3 uid="uid://cie4blbssxtei"]
 
-[ext_resource type="Script" uid="uid://ca5n72k2gcjog" path="res://Scripts/EnemyChaser.gd" id="1_foulm"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_foulm"]
 [ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="3_h5d2w"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwlwb"]
+radius = 64.070274
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwlwb"]
+size = Vector2(170.5, 777)
+
 [node name="EnemyTest" type="Node2D" unique_id=13123263]
-script = ExtResource("1_foulm")
 
 [node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("3_h5d2w")]
-position = Vector2(629, 428)
-target = NodePath("../Icon")
+position = Vector2(743, 587)
+enemyVelocity = 100.0
+target = NodePath("../CharacterBody2D")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1875227427]
-position = Vector2(401, 318)
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=190204790]
+position = Vector2(272, 493)
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=1875227427]
 texture = ExtResource("2_foulm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1880893413]
+shape = SubResource("CircleShape2D_nwlwb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CharacterBody2D" unique_id=123310003]
+position = Vector2(246, -192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/StaticBody2D" unique_id=1912457817]
+position = Vector2(-32.75, 6)
+shape = SubResource("RectangleShape2D_nwlwb")

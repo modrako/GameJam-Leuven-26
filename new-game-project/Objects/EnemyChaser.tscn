@@ -6,16 +6,25 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwlwb"]
 radius = 27.018513
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o1n87"]
+
 [node name="EnemyChaser" type="CharacterBody2D" unique_id=683529726]
+motion_mode = 1
 script = ExtResource("1_8i4bw")
+speed = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817923285]
 scale = Vector2(0.1, 0.045)
 texture = ExtResource("2_bbgcn")
 
-[node name="On" type="Area2D" parent="." unique_id=2016405033]
+[node name="Area2d" type="Area2D" parent="." unique_id=2016405033]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="On" unique_id=1246323959]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2d" unique_id=1246323959]
 shape = SubResource("CircleShape2D_nwlwb")
 
-[connection signal="body_entered" from="On" to="." method="_on_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=480560796]
+shape = SubResource("CircleShape2D_o1n87")
+disabled = true
+debug_color = Color(0.9588694, 0, 0.5220944, 0.07058824)
+
+[connection signal="body_entered" from="Area2d" to="." method="_on_on_body_entered"]
