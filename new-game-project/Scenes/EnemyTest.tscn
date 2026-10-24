@@ -24,10 +24,6 @@ shape = SubResource("CircleShape2D_nwlwb")
 position = Vector2(726, 274)
 scale = Vector2(0.996795, 0.99320096)
 target = NodePath("../PlayerDummy")
-timerVariance = 2.0
-timerBase = 3.0
-rotationSpeed = 2.0
-distanceFromPlayer = 200.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=123310003]
 visible = false

@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwlwb"]
 radius = 32.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=964709311 node_paths=PackedStringArray("projectile")]
+[node name="BoomerangEnemy" type="CharacterBody2D" unique_id=964709311 node_paths=PackedStringArray("projectile")]
 script = ExtResource("1_57d1o")
 projectile = NodePath("Projectiles")
 

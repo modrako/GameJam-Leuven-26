@@ -5,8 +5,8 @@ extends Enemy
 @export var projectile:Boomerang
 @export var timerVariance:float = 5
 @export var timerBase:float = 15
-@export var rotationSpeed:float = 0
-@export var distanceFromPlayer:float = 3
+@export var rotationSpeed:float = 2
+@export var distanceFromTarget:float = 200
 var angle = 0
 var angleDirection = 1
 var State:States = States.SPIN
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	
 func RotateAroundPlayer(delta:float):
 	angle += rotationSpeed * delta * angleDirection
-	position = target.global_position + Vector2(cos(angle), sin(angle)) * distanceFromPlayer
+	position = target.global_position + Vector2(cos(angle), sin(angle)) * distanceFromTarget
 	
 func dealDamage() -> void:
 	print("die")
@@ -40,7 +40,7 @@ func _onBoomerangReturned() -> void:
 	State = States.SPIN
 	
 func setAndStartTimer() -> void:
-	shoot_timer.wait_time =timerBase + randf_range(-timerVariance/2,timerVariance/2)
+	shoot_timer.wait_time =timerBase + randf_range(-timerVariance,timerVariance)
 	shoot_timer.start()
 
 func _on_shoot_timer_timeout() -> void:
