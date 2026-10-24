@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dv6km1irfpcfs"]
+
+[ext_resource type="Script" uid="uid://bn82q3cqcuidi" path="res://Scripts/EnemyBoomerang.gd" id="1_57d1o"]
+[ext_resource type="Texture2D" uid="uid://bakygsf2cfcpi" path="res://Sprites/providencegun.png" id="1_wlhxe"]
+[ext_resource type="PackedScene" uid="uid://b1ontg2y11qtp" path="res://Objects/Boomerang.tscn" id="2_3smkf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kcp1i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwlwb"]
+radius = 32.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=964709311 node_paths=PackedStringArray("projectile")]
+script = ExtResource("1_57d1o")
+projectile = NodePath("Projectiles")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1290015681]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_wlhxe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=210246429]
+scale = Vector2(1.0110486, 1)
+shape = SubResource("CircleShape2D_kcp1i")
+disabled = true
+
+[node name="Projectiles" parent="." unique_id=1840944763 node_paths=PackedStringArray("shooter") instance=ExtResource("2_3smkf")]
+scale = Vector2(0.9815274, 0.9949188)
+shooter = NodePath("..")
+basePower = 450
+powerFallOff = 350
+
+[node name="CatchBoomerangZone" type="Area2D" parent="." unique_id=37165928]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchBoomerangZone" unique_id=1953790892]
+shape = SubResource("CircleShape2D_nwlwb")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=508650551]
+wait_time = 20.0
+one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

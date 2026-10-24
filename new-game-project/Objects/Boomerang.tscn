@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b1ontg2y11qtp"]
+
+[ext_resource type="Texture2D" uid="uid://bq4wk3bct7f0" path="res://Sprites/thecreatorofthisguyisanasshole.png" id="1_a0pqm"]
+[ext_resource type="Script" uid="uid://uo42qndf4fga" path="res://Scripts/Boomerang.gd" id="1_ys7nb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwlwb"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o1n87"]
+
+[node name="Boomerang" type="RigidBody2D" unique_id=1840944763]
+gravity_scale = 0.0
+script = ExtResource("1_ys7nb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2082007992]
+scale = Vector2(0.045, 0.05)
+texture = ExtResource("1_a0pqm")
+
+[node name="BoomerangArea2D" type="Area2D" parent="." unique_id=2072095306]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoomerangArea2D" unique_id=288620017]
+shape = SubResource("CircleShape2D_nwlwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263679211]
+scale = Vector2(1.0019804, 1)
+shape = SubResource("CircleShape2D_o1n87")
+disabled = true
+
+[connection signal="area_entered" from="BoomerangArea2D" to="." method="_on_boomerang_area_2d_area_entered"]
+[connection signal="body_entered" from="BoomerangArea2D" to="." method="_on_boomerang_area_2d_body_entered"]
