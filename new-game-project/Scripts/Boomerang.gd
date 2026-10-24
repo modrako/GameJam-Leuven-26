@@ -46,4 +46,4 @@ func _on_boomerang_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_boomerang_area_2d_body_entered(body: Node2D) -> void:
 	if body == shooter.target:
-		shooter.dealDamage()
+		shooter.dealDamage(shooter.position)

@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var target : PhysicsBody2D
 
-signal Hit()
+signal Hit(enemyPostion: Vector2)
 
 func _ready() -> void:
 	await target.ready
@@ -13,5 +13,5 @@ func _ready() -> void:
 	
 	Hit.connect(target.on_enemy_hit)
 
-func dealDamage() -> void:
-	Hit.emit()
+func dealDamage(enemyPostion: Vector2) -> void:
+	Hit.emit(enemyPostion)

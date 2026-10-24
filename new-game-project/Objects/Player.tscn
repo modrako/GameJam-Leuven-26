@@ -195,3 +195,6 @@ shape = SubResource("RectangleShape2D_y3r0k")
 [node name="Timer" type="Timer" parent="." unique_id=1181968825]
 process_callback = 0
 wait_time = 0.25
+
+[node name="IFrames" type="Timer" parent="." unique_id=1838270852]
+wait_time = 0.5

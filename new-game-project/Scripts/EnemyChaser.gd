@@ -8,5 +8,5 @@ func _physics_process(delta: float) -> void:
 func _on_on_body_entered(_body: Node2D) -> void:
 	if _body != target:
 		return
-	super.dealDamage()
+	dealDamage(position)
 	

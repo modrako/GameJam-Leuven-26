@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5u5rgnkyx0nl"]
 
-[ext_resource type="Script" uid="uid://cnsy6dlg8v0le" path="res://Scripts/roomTrigger.gd" id="1_xk4yk"]
+[ext_resource type="Script" uid="uid://dsova04gokj7c" path="res://Scripts/roomTrigger.gd" id="1_xk4yk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3r0k"]
 size = Vector2(11, 20)
