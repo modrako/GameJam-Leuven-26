@@ -2,7 +2,14 @@
 class_name Enemy
 extends CharacterBody2D
 
-signal Attack()
+@export var target : PhysicsBody2D
 
-@abstract func dealDamage() -> void
-	
+signal Hit()
+
+func _ready() -> void:
+	assert(target.has_method("on_enemy_hit"))
+	assert(target.is_node_ready())
+	Hit.connect(target.on_enemy_hit)
+
+func dealDamage() -> void:
+	Hit.emit()

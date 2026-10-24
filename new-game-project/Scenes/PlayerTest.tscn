@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://5ysbtvfmo4w0"]
 
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="1_1vpby"]
+[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="2_6n652"]
+[ext_resource type="PackedScene" uid="uid://dv6km1irfpcfs" path="res://Objects/EnemyBoomerang.tscn" id="3_afu10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3r0k"]
 size = Vector2(40, 40)
@@ -25,3 +27,12 @@ color = Color(0.8208052, 0, 0.22230193, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1950815237]
 shape = SubResource("RectangleShape2D_y3r0k")
+
+[node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("2_6n652")]
+position = Vector2(844, 412)
+target = NodePath("../Player")
+
+[node name="BoomerangEnemy" parent="." unique_id=964709311 node_paths=PackedStringArray("target") instance=ExtResource("3_afu10")]
+position = Vector2(361, 223)
+timerBase = 5.0
+target = NodePath("../Player")

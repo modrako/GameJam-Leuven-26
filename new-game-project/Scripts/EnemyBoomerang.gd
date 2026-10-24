@@ -1,7 +1,6 @@
 extends Enemy
 
 @onready var shoot_timer: Timer = $ShootTimer
-@export var target:CharacterBody2D
 @export var projectile:Boomerang
 @export var timerVariance:float = 5
 @export var timerBase:float = 15
@@ -16,7 +15,10 @@ enum States{
 	ATTACK,
 }
 
+signal Attack()
+
 func _ready() -> void:
+	super._ready()
 	setAndStartTimer()
 	projectile.returned.connect(_onBoomerangReturned)
 	
@@ -32,9 +34,7 @@ func RotateAroundPlayer(delta:float):
 	angle += rotationSpeed * delta * angleDirection
 	position = target.global_position + Vector2(cos(angle), sin(angle)) * distanceFromTarget
 	
-func dealDamage() -> void:
-	print("die")
-	
+
 func _onBoomerangReturned() -> void:
 	setAndStartTimer()
 	State = States.SPIN

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 #region movementVariables
-@export var moveSpeed := 200
+@export var moveSpeed := 300
 
 @export var jumpHeight : float = 200
 @export var timeToFullJump : float = 0.2
@@ -58,3 +58,7 @@ func GetGravity():
 			return jumpGravity * shortJumpScale
 	else:
 		return fallGravity
+
+func on_enemy_hit():
+	health -= 1
+	print(health)

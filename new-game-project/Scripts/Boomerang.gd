@@ -39,10 +39,11 @@ func ApplyAndUpdateVelocity(delta: float):
 	power -= powerFallOff * delta
 
 func _on_boomerang_area_2d_area_entered(area: Area2D) -> void:
-	if area.get_parent() == shooter and power <0:
+	if area.get_parent() == shooter and power < 0:
 		isBeingThrown = false;
 		power = basePower
 		returned.emit()
 
 func _on_boomerang_area_2d_body_entered(body: Node2D) -> void:
-	shooter.dealDamage() #add check for player
+	if body == shooter.target:
+		shooter.dealDamage()
