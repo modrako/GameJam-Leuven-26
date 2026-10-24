@@ -17,8 +17,13 @@ var canJump = false
 #endregion
 #TODO: Coyote Time
 #TODO: Jump buffer
+#TODO: Damage feedback
+#TODO: Death
 
 @export var health := 5
+
+const MAXCHILDREN := 3
+var childCount := 0
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GetGravity() * delta

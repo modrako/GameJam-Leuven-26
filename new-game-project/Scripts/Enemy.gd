@@ -7,8 +7,10 @@ extends CharacterBody2D
 signal Hit()
 
 func _ready() -> void:
+	await target.ready
 	assert(target.has_method("on_enemy_hit"))
 	assert(target.is_node_ready())
+	
 	Hit.connect(target.on_enemy_hit)
 
 func dealDamage() -> void:

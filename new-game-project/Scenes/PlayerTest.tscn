@@ -1,38 +1,65 @@
 [gd_scene format=3 uid="uid://5ysbtvfmo4w0"]
 
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="1_1vpby"]
-[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="2_6n652"]
-[ext_resource type="PackedScene" uid="uid://dv6km1irfpcfs" path="res://Objects/EnemyBoomerang.tscn" id="3_afu10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3r0k"]
 size = Vector2(40, 40)
 
-[node name="PlayerTest" type="Node2D" unique_id=1159418298]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncg1j"]
+size = Vector2(40, 40)
+
+[node name="TestLevel" type="Node2D" unique_id=1159418298]
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1841270351 instance=ExtResource("1_1vpby")]
 position = Vector2(197, 339)
 scale = Vector2(0.6, 0.6)
+collision_mask = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1452357883]
-position = Vector2(492, 596)
-scale = Vector2(35.872784, 2.902218)
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1452357883]
+position = Vector2(1187, 627.99994)
+scale = Vector2(61.59278, 1.1422181)
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1935725876]
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=1935725876]
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 color = Color(0.8208052, 0, 0.22230193, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1950815237]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1950815237]
 shape = SubResource("RectangleShape2D_y3r0k")
 
-[node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("2_6n652")]
-position = Vector2(844, 412)
-target = NodePath("../Player")
+[node name="Doorway1" type="StaticBody2D" parent="." unique_id=528401596]
+position = Vector2(1021, -32)
+scale = Vector2(1, 13.52)
 
-[node name="BoomerangEnemy" parent="." unique_id=964709311 node_paths=PackedStringArray("target") instance=ExtResource("3_afu10")]
-position = Vector2(361, 223)
-timerBase = 5.0
-target = NodePath("../Player")
+[node name="ColorRect" type="ColorRect" parent="Doorway1" unique_id=875748838]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.93741536, 0.17055467, 0.45644885, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorway1" unique_id=2043237337]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_ncg1j")
+
+[node name="Doorway2" type="StaticBody2D" parent="." unique_id=1441170047]
+position = Vector2(1134, -36)
+scale = Vector2(1, 13.52)
+
+[node name="ColorRect" type="ColorRect" parent="Doorway2" unique_id=2118386921]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.93741536, 0.17055467, 0.45644885, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorway2" unique_id=1239421646]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_ncg1j")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=748410789]
+anchor_mode = 0
+
+[node name="Room1" type="Node2D" parent="." unique_id=290134555]
+
+[node name="Room2" type="Node2D" parent="." unique_id=865760839]
+position = Vector2(1152, 0)
