@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var player : PhysicsBody2D
-@export var camera : Camera2D
+@onready var player : PhysicsBody2D = $"../../../Player"
+@onready var camera : Camera2D = $"../../../Camera2D"
 @onready var room = self.get_parent()
 
 signal Player_Entered(roomTopLeft : Vector2)
