@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://5ysbtvfmo4w0"]
 
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="1_1vpby"]
+[ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_afu10"]
+[ext_resource type="PackedScene" uid="uid://5u5rgnkyx0nl" path="res://Objects/RoomTrigger.tscn" id="3_afu10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3r0k"]
 size = Vector2(40, 40)
@@ -56,10 +58,21 @@ color = Color(0.93741536, 0.17055467, 0.45644885, 1)
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_ncg1j")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=748410789]
-anchor_mode = 0
+[node name="Camera2D" parent="." unique_id=712204054 instance=ExtResource("2_afu10")]
 
-[node name="Room1" type="Node2D" parent="." unique_id=290134555]
+[node name="Room1" type="Node2D" parent="." unique_id=2090005384]
 
-[node name="Room2" type="Node2D" parent="." unique_id=865760839]
-position = Vector2(1152, 0)
+[node name="CameraMoveTrigger" parent="Room1" unique_id=1163785020 node_paths=PackedStringArray("player", "camera") instance=ExtResource("3_afu10")]
+position = Vector2(1039, 557)
+scale = Vector2(1, 6.2)
+player = NodePath("../../Player")
+camera = NodePath("../../Camera2D")
+
+[node name="Room2" type="Node2D" parent="." unique_id=1295042107]
+position = Vector2(1041, 0)
+
+[node name="CameraMoveTrigger2" parent="Room2" unique_id=950235535 node_paths=PackedStringArray("player", "camera") instance=ExtResource("3_afu10")]
+position = Vector2(109, 560)
+scale = Vector2(1, 6.2)
+player = NodePath("../../Player")
+camera = NodePath("../../Camera2D")

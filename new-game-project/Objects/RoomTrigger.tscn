@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://5u5rgnkyx0nl"]
+
+[ext_resource type="Script" uid="uid://cnsy6dlg8v0le" path="res://Scripts/roomTrigger.gd" id="1_xk4yk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3r0k"]
+size = Vector2(11, 20)
+
+[node name="CameraMoveTrigger" type="Area2D" unique_id=1163785020]
+script = ExtResource("1_xk4yk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2045396784]
+shape = SubResource("RectangleShape2D_y3r0k")
+
+[connection signal="body_entered" from="." to="." method="on_player_enter"]
