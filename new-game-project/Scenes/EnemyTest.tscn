@@ -7,8 +7,9 @@
 [node name="EnemyTest" type="Node2D" unique_id=13123263]
 script = ExtResource("1_foulm")
 
-[node name="EnemyChaser" parent="." unique_id=683529726 instance=ExtResource("3_h5d2w")]
+[node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("3_h5d2w")]
 position = Vector2(629, 428)
+target = NodePath("../Icon")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1875227427]
 position = Vector2(401, 318)
