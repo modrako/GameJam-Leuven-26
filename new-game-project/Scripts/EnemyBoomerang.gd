@@ -1,5 +1,8 @@
 extends Enemy
 
+@onready var shoot_sfx: AudioStreamPlayer = $ShootSfx
+@onready var reverse_shoot_sfx: AudioStreamPlayer = $ReverseShootSfx
+
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var shoot_timer: Timer = $ShootTimer
 @export var projectile:Boomerang
@@ -40,6 +43,7 @@ func _onBoomerangReturned() -> void:
 	setAndStartTimer()
 	State = States.SPIN
 	anim_sprite.play("ReSpin")
+	reverse_shoot_sfx.play()
 	
 func setAndStartTimer() -> void:
 	shoot_timer.wait_time =timerBase + randf_range(-timerVariance,timerVariance)
@@ -51,7 +55,7 @@ func _on_shoot_timer_timeout() -> void:
 	angleDirection *= -1
 	Attack.emit()
 	anim_sprite.play("Shoot")
-
+	shoot_sfx.play()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if State == States.SPIN:

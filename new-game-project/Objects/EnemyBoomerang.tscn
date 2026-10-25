@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bn82q3cqcuidi" path="res://Scripts/EnemyBoomerang.gd" id="1_57d1o"]
 [ext_resource type="PackedScene" uid="uid://b1ontg2y11qtp" path="res://Objects/Boomerang.tscn" id="2_3smkf"]
 [ext_resource type="Texture2D" uid="uid://cj7a5mx5ek068" path="res://Sprites/spritesheet_enemies.png" id="2_57d1o"]
+[ext_resource type="AudioStream" uid="uid://cdmltlaljg6to" path="res://Sounds/ShootSkeleton.mp3" id="4_lcn0n"]
+[ext_resource type="AudioStream" uid="uid://c1un1hbthb0in" path="res://Sounds/GetBackSkeleton.mp3" id="5_ks13h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j348j"]
 atlas = ExtResource("2_57d1o")
@@ -433,6 +435,12 @@ shape = SubResource("CircleShape2D_nwlwb")
 [node name="ShootTimer" type="Timer" parent="." unique_id=508650551]
 wait_time = 20.0
 one_shot = true
+
+[node name="ShootSfx" type="AudioStreamPlayer" parent="." unique_id=362468276]
+stream = ExtResource("4_lcn0n")
+
+[node name="ReverseShootSfx" type="AudioStreamPlayer" parent="." unique_id=1326370457]
+stream = ExtResource("5_ks13h")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

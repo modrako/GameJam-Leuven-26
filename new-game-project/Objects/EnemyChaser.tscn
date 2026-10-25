@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca5n72k2gcjog" path="res://Scripts/EnemyChaser.gd" id="1_8i4bw"]
 [ext_resource type="Texture2D" uid="uid://cj7a5mx5ek068" path="res://Sprites/spritesheet_enemies.png" id="2_he07h"]
+[ext_resource type="AudioStream" uid="uid://daukywbfdc2rb" path="res://Sounds/EvilGhost.mp3" id="3_vlup8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwlwb"]
 radius = 27.018513
@@ -122,5 +123,12 @@ scale = Vector2(0.40166664, 0.40166664)
 sprite_frames = SubResource("SpriteFrames_nwlwb")
 autoplay = "default"
 frame_progress = 0.5369329
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1833523902]
+stream = ExtResource("3_vlup8")
+autoplay = true
+max_distance = 1000.0
+attenuation = 4.0
+panning_strength = 3.0
 
 [connection signal="body_entered" from="Area2d" to="." method="_on_on_body_entered"]

@@ -12,6 +12,10 @@ extends CharacterBody2D
 @onready var knock_back_timer: Timer = $KnockBackTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collider = $CollisionShape2D
+@onready var walk: AudioStreamPlayer = $Walk
+@onready var hit_sfx: AudioStreamPlayer = $HitSfx
+@onready var death_sfx: AudioStreamPlayer = $DeathSfx
+@onready var jump_sfx: AudioStreamPlayer = $Jump
 
 var jumpImpulse : float = -2 * jumpHeight / timeToPeak
 var jumpGravity : float = CalculateGravity(timeToPeak)
@@ -42,7 +46,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not alive:
 		return
-	
+	if velocity.x != 0 and is_on_floor() and walk.playing == false:
+		walk.play()
+	elif velocity.x == 0 or !is_on_floor():
+		walk.stop()
+		
 	velocity.y += GetGravity() * delta
 	if is_on_floor():
 		canJump = true
@@ -93,6 +101,7 @@ func Jump() -> void:
 			animation_player.play("Jump")
 			WasInAirLastFrame = true
 			jumpHold.start()
+			jump_sfx.play()
 
 func CalculateGravity(time : float) -> float:
 	return 2 * jumpHeight / pow(time, 2.0)
@@ -114,6 +123,7 @@ func on_enemy_hit(enemyPosition: Vector2):
 			var disableCollision = func(): collider.disabled = true
 			disableCollision.call_deferred()
 			spriteAnim.play("Death")
+			death_sfx.play()
 			Die()
 		else:
 			#knockback + animations
@@ -128,6 +138,7 @@ func on_enemy_hit(enemyPosition: Vector2):
 			i_frames.start()
 			knock_back_timer.start()
 			WasInAirLastFrame = true
+			hit_sfx.play()
 
 func _on_drop_off_enter(body: Node2D) -> void:
 	if body == self:

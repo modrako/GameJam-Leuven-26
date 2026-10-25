@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cqvvxysbuixjw" path="res://Scripts/Player.gd" id="1_n6db0"]
 [ext_resource type="Texture2D" uid="uid://cfdi288mgnhw5" path="res://Sprites/spritesheet_connie.png" id="2_n6db0"]
+[ext_resource type="AudioStream" uid="uid://uwsrgr2hhjkt" path="res://Sounds/Death.mp3" id="3_u60sl"]
+[ext_resource type="AudioStream" uid="uid://d2udy4deoaig4" path="res://Sounds/Hit.mp3" id="4_t1tke"]
+[ext_resource type="AudioStream" uid="uid://sismyj8k5gj7" path="res://Sounds/WalkingSfx.mp3" id="5_qwxmt"]
+[ext_resource type="AudioStream" uid="uid://daefn2wyfegm4" path="res://Sounds/JumpBunny.mp3" id="6_t1tke"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yk4ok"]
 atlas = ExtResource("2_n6db0")
@@ -351,7 +355,7 @@ script = ExtResource("1_n6db0")
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_ncg1j")
 animation = &"Idle"
-frame_progress = 0.8272618
+frame_progress = 0.76905954
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951849645]
 position = Vector2(2.5, 9)
@@ -370,3 +374,21 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=179291163]
 libraries/ = SubResource("AnimationLibrary_gijnf")
+
+[node name="DeathSfx" type="AudioStreamPlayer" parent="." unique_id=2003581390]
+stream = ExtResource("3_u60sl")
+
+[node name="HitSfx" type="AudioStreamPlayer" parent="." unique_id=1148548146]
+stream = ExtResource("4_t1tke")
+
+[node name="Walk" type="AudioStreamPlayer" parent="." unique_id=1121963837]
+stream = ExtResource("5_qwxmt")
+volume_db = -10.0
+pitch_scale = 1.5
+autoplay = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=1624223846]
+stream = ExtResource("6_t1tke")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1550792232]
+current = true

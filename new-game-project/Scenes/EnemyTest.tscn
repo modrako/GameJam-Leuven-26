@@ -23,6 +23,8 @@ shape = SubResource("CircleShape2D_nwlwb")
 [node name="CharacterBody2D" parent="." unique_id=964709311 node_paths=PackedStringArray("target") instance=ExtResource("2_h5d2w")]
 position = Vector2(726, 274)
 scale = Vector2(0.996795, 0.99320096)
+timerVariance = 2.0
+timerBase = 5.0
 target = NodePath("../PlayerDummy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=123310003]
