@@ -7,7 +7,7 @@
 size = Vector2(239, 78)
 
 [node name="OneWayPlatform" type="StaticBody2D" unique_id=1290947215]
-z_index = -1
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ggmxs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=407675899]
