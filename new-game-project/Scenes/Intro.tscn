@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b5plgohql8akv"]
+
+[ext_resource type="Script" uid="uid://b65a0ls8booqw" path="res://Intro.gd" id="1_vmpge"]
+[ext_resource type="Texture2D" uid="uid://bei5u4mq6b111" path="res://Sprites/ImagecOOOL.png" id="2_d0kpp"]
+[ext_resource type="Theme" uid="uid://c4gt842kkgnip" path="res://UiTheme.tres" id="3_u3s32"]
+
+[node name="Control" type="Control" unique_id=224762654]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vmpge")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=87628928]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=53672121]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 236.0
+offset_top = 159.0
+offset_right = 1004.0
+offset_bottom = 591.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_d0kpp")
+
+[node name="Label" type="Label" parent="." unique_id=1664565503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = 17.0
+offset_right = -11.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_u3s32")
+theme_override_font_sizes/font_size = 16
+text = "!!Connie got lost during trick or treating!!
+
+There have been rumors that the mansion she got lost in is very haunted 
+but there isnt much a little girl can do about it now
+
+Help her Get out and Rescue 
+the lost souls of the children that got lost in the mansion before her
+
+its very rude to leave some one hanging
+
+move around with WASD or ARROW Keys
+jump with SPACE
+
+press space to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
