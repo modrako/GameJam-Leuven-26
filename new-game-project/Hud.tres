@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://dvyrft4mk4ctw"]
+
+[ext_resource type="FontFile" uid="uid://jkvwaqnoomch" path="res://Spookyy.otf" id="1_4picd"]
+
+[resource]
+Label/colors/font_color = Color(0.9906985, 0.89395756, 0.80526596, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0.60784316)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.21568628)
+Label/constants/outline_size = 16
+Label/font_sizes/font_size = 96
+Label/fonts/font = ExtResource("1_4picd")
