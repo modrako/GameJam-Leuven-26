@@ -408,13 +408,7 @@ position = Vector2(-14, 9)
 [node name="Player" parent="." unique_id=1841270351 instance=ExtResource("4_rgh2o")]
 position = Vector2(560, 547)
 scale = Vector2(0.6, 0.6)
-moveSpeed = 300
 knockBackStrength = 800.0
-jumpHeight = 200.0
-timeToFullJump = 0.2
-timeToPeak = 0.6
-timeToDescend = 0.4
-health = 5
 
 [node name="Rooms" type="Node" parent="." unique_id=839210916]
 

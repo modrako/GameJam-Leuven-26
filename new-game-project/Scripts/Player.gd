@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var jumpHold : Timer = $Timer
 @onready var i_frames: Timer = $IFrames
 @onready var knock_back_timer: Timer = $KnockBackTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var jumpImpulse : float = -2 * jumpHeight / timeToPeak
 var jumpGravity : float = CalculateGravity(timeToPeak)
@@ -17,7 +18,7 @@ var fallGravity : float = CalculateGravity(timeToDescend)
 var shortJumpScale := 3
 var canJump = false
 var IsPlayerInKnockBack: bool = false
-
+var WasInAirLastFrame = false
 #endregion
 #TODO: Coyote Time
 #TODO: Jump buffer
@@ -36,8 +37,13 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		canJump = true
 		if IsPlayerInKnockBack && knock_back_timer.time_left <= 0:
-			#velocity = Vector2.ZERO
+			animation_player.play("HitGround")
+			velocity = Vector2.ZERO
 			IsPlayerInKnockBack = false
+		if WasInAirLastFrame:
+			animation_player.play("HitGround")
+			WasInAirLastFrame = false
+			
 	if !IsPlayerInKnockBack:
 		Move()
 		Jump()
@@ -46,7 +52,13 @@ func _physics_process(delta: float) -> void:
 			spriteAnim.play("Rise")
 		else:
 			spriteAnim.play("Fall")
-
+			if !animation_player.is_playing() && WasInAirLastFrame == true:
+				animation_player.play("Falling")
+	
+	if i_frames.time_left >0:
+		AnimateIframes()
+	else:
+		spriteAnim.modulate = Color(1,1,1,1)
 	move_and_slide()
 	
 func Move() -> void:
@@ -67,6 +79,8 @@ func Jump() -> void:
 		if canJump:
 			canJump = false
 			velocity.y = jumpImpulse
+			animation_player.play("Jump")
+			WasInAirLastFrame = true
 			jumpHold.start()
 
 func CalculateGravity(time : float) -> float:
@@ -91,9 +105,10 @@ func on_enemy_hit(enemyPosition: Vector2):
 		health -= 1
 		IsPlayerInKnockBack = true
 		spriteAnim.play("Hurt")
+		animation_player.play("Hurt")
 		i_frames.start()
 		knock_back_timer.start()
-		print(health)
+		WasInAirLastFrame = true
 	
 
 func _on_drop_off_enter(body: Node2D) -> void:
@@ -101,3 +116,9 @@ func _on_drop_off_enter(body: Node2D) -> void:
 		for i in collectedChildren:
 			i.saved = true
 		collectedChildren.clear()
+	
+func AnimateIframes():
+	var flashInterval:float = 0.25
+	var flashPoint:float = fmod(i_frames.time_left, flashInterval)
+	spriteAnim.modulate = Color(1,1,1,flashPoint*3)
+	
