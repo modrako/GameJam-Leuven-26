@@ -6,14 +6,17 @@ extends Control
 @onready var ghost_left: Label = $GhostLeft
 @onready var ghosts: Node = $"../../Ghosts"
 @onready var player: CharacterBody2D = $"../../Player"
+@onready var animation_player: AnimationPlayer = $GhostLeft/AnimationPlayer
 
 func _process(delta: float) -> void:
 	current_hp_label.text = str(player.health)
 	max_hp.text = str(player.maxHealth)
-	print(ghost_left.text)
 	ghost_amount.text  = str(len(player.collectedChildren))
 	max_ghosts.text = str(player.MAX_CHILDREN)
-	
-
-func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	ghost_left.text = str(ghosts.get_child_count())
+	
+	
+func _on_player_ghost_dropped_off() -> void:
+	
+	animation_player.play("Show")
+	

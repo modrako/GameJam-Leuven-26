@@ -35,6 +35,8 @@ const MAX_CHILDREN := 3
 var collectedChildren = []
 
 var alive = true
+
+signal GhostDroppedOff()
 func _ready() -> void:
 	health = maxHealth
 func _physics_process(delta: float) -> void:
@@ -134,6 +136,7 @@ func _on_drop_off_enter(body: Node2D) -> void:
 				continue
 			i.saved = true
 			i.Save()
+		GhostDroppedOff.emit()
 		collectedChildren.clear()
 	
 func AnimateIframes():

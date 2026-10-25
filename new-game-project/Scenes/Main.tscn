@@ -886,5 +886,5 @@ horizontal_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/GhostLeft" unique_id=315415879]
 libraries/ = SubResource("AnimationLibrary_0sclb")
 
+[connection signal="GhostDroppedOff" from="Player" to="CanvasLayer/Control" method="_on_player_ghost_dropped_off"]
 [connection signal="body_entered" from="DropArea" to="Player" method="_on_drop_off_enter"]
-[connection signal="animation_started" from="CanvasLayer/Control/GhostLeft/AnimationPlayer" to="CanvasLayer/Control" method="_on_animation_player_animation_started"]
