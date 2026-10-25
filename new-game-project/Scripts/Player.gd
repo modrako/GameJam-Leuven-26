@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var timeToDescend : float = 0.4
 @onready var jumpHold : Timer = $Timer
 @onready var i_frames: Timer = $IFrames
-
+@onready var knock_back_timer: Timer = $KnockBackTimer
 
 var jumpImpulse : float = -2 * jumpHeight / timeToPeak
 var jumpGravity : float = CalculateGravity(timeToPeak)
@@ -33,13 +33,14 @@ var collectedChildren = []
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GetGravity() * delta
-
-	
 	if is_on_floor():
 		canJump = true
+		if IsPlayerInKnockBack && knock_back_timer.time_left <= 0:
+			#velocity = Vector2.ZERO
+			IsPlayerInKnockBack = false
 	if !IsPlayerInKnockBack:
 		Move()
-		Jump();
+		Jump()
 	if not is_on_floor():
 		if velocity.y <= 0:
 			spriteAnim.play("Rise")
@@ -82,13 +83,18 @@ func GetGravity():
 
 func on_enemy_hit(enemyPosition: Vector2):
 	if i_frames.time_left <= 0:
-		velocity = enemyPosition.direction_to(position) * knockBackStrength
+		if enemyPosition.direction_to(position).x > 0:
+			velocity.x = knockBackStrength/2
+		else:
+			velocity.x = -knockBackStrength/2
+		velocity.y = -knockBackStrength
 		health -= 1
 		IsPlayerInKnockBack = true
 		spriteAnim.play("Hurt")
 		i_frames.start()
-		
-	print(health)
+		knock_back_timer.start()
+		print(health)
+	
 
 func _on_drop_off_enter(body: Node2D) -> void:
 	if body == self:

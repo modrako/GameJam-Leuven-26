@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://5u5rgnkyx0nl" path="res://Objects/RoomTrigger.tscn" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="4_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="5_pbw6q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idj7w"]
 texture = ExtResource("1_r150o")
@@ -402,10 +403,18 @@ tile_set = SubResource("TileSet_nwlwb")
 navigation_enabled = false
 
 [node name="Camera2D" parent="." unique_id=712204054 instance=ExtResource("2_kln2b")]
+position = Vector2(-14, 9)
 
 [node name="Player" parent="." unique_id=1841270351 instance=ExtResource("4_rgh2o")]
 position = Vector2(560, 547)
 scale = Vector2(0.6, 0.6)
+moveSpeed = 300
+knockBackStrength = 800.0
+jumpHeight = 200.0
+timeToFullJump = 0.2
+timeToPeak = 0.6
+timeToDescend = 0.4
+health = 5
 
 [node name="Rooms" type="Node" parent="." unique_id=839210916]
 
@@ -531,3 +540,7 @@ position = Vector2(0, -1944)
 position = Vector2(577.00006, 598)
 rotation = 1.5707964
 scale = Vector2(1, 15.799984)
+
+[node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("5_pbw6q")]
+position = Vector2(701, 528)
+target = NodePath("../Player")

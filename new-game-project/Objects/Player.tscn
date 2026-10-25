@@ -182,6 +182,13 @@ size = Vector2(35, 98)
 [node name="Player" type="CharacterBody2D" unique_id=1841270351]
 collision_mask = 3
 script = ExtResource("1_n6db0")
+moveSpeed = null
+knockBackStrength = null
+jumpHeight = null
+timeToFullJump = null
+timeToPeak = null
+timeToDescend = null
+health = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1413722733]
 scale = Vector2(0.4, 0.4)
@@ -197,4 +204,8 @@ process_callback = 0
 wait_time = 0.25
 
 [node name="IFrames" type="Timer" parent="." unique_id=1838270852]
-wait_time = 0.5
+one_shot = true
+
+[node name="KnockBackTimer" type="Timer" parent="." unique_id=236606001]
+wait_time = 0.1
+one_shot = true
