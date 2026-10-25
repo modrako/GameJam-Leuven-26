@@ -51,3 +51,9 @@ func SpawnEnemy():
 	newEnemy.target = player
 	newEnemy.position = Vector2(door.position.x, door.position.y - 300)
 	enemies.add_child(newEnemy)
+
+func _on_drop_area_player_leave() -> void:
+	if numChildren <= 0:
+		get_tree().change_scene_to_file("res://Scenes/TrueEnd.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/GoodEnding.tscn")

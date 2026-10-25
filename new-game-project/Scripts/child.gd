@@ -9,6 +9,7 @@ var saved : bool = false
 @onready var animSprite = $AnimatedSprite2D
 @onready var player : PhysicsBody2D = $"../../Player"
 @onready var gameManager : Node2D = $"../.."
+@onready var collect_ghost_sfx: AudioStreamPlayer = $CollectGhost
 
 var minSpeed = 50
 @onready var maxSpeed = player.moveSpeed + 100
@@ -47,6 +48,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_collect_area_body_entered(body: Node2D) -> void:
 	if body == player and player.collectedChildren.size() < player.MAX_CHILDREN and not isCollected:
+		Playding()
 		isCollected = true
 		player.collectedChildren.push_back(self)
 
@@ -54,10 +56,14 @@ func Save():
 	var saveAnim : Tween = get_tree().create_tween()
 	saveAnim.tween_callback(dropArea.Open)
 	saveAnim.tween_property(self, "position", dropArea.position, self.position.distance_to(dropArea.position) / maxSpeed)
+	saveAnim.tween_callback(self.Playding)
+	saveAnim.tween_await(collect_ghost_sfx.finished)
 	saveAnim.tween_callback(dropArea.Close)
 	saveAnim.tween_callback(player.collectedChildren.clear)
 	saveAnim.tween_callback(self.queue_free)
 
+func Playding():
+	collect_ghost_sfx.play()
 func FlipSprite(moveDirection : Vector2):
 	if moveDirection.x >= 0:
 		animSprite.flip_h = false

@@ -103,6 +103,7 @@ func Jump() -> void:
 			animation_player.play("Jump")
 			WasInAirLastFrame = true
 			jumpHold.start()
+			jump_sfx.pitch_scale = randf_range(0.9,1.2)
 			jump_sfx.play()
 
 func CalculateGravity(time : float) -> float:

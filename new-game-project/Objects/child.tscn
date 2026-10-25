@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uh6wqnyh0xk2" path="res://Scripts/child.gd" id="1_p4pxl"]
 [ext_resource type="Texture2D" uid="uid://w7ag3hhdaqv3" path="res://Sprites/spritesheet_ghost_children.png" id="2_p4pxl"]
+[ext_resource type="AudioStream" uid="uid://m7d00gybavjd" path="res://Sounds/CollectGhost.mp3" id="3_0opl3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0opl3"]
 atlas = ExtResource("2_p4pxl")
@@ -145,5 +146,9 @@ shape = SubResource("CircleShape2D_y3r0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea" unique_id=142894196]
 shape = SubResource("CircleShape2D_ncg1j")
+
+[node name="CollectGhost" type="AudioStreamPlayer" parent="." unique_id=250788886]
+stream = ExtResource("3_0opl3")
+volume_db = -5.0
 
 [connection signal="body_entered" from="CollectArea" to="." method="_on_collect_area_body_entered"]
