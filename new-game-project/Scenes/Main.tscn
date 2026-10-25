@@ -974,6 +974,40 @@ horizontal_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/GhostLeft" unique_id=315415879]
 libraries/ = SubResource("AnimationLibrary_0sclb")
 
+[node name="EndingSpawns" type="Node" parent="." unique_id=1426685081]
+
+[node name="Spawn_0" type="Node2D" parent="EndingSpawns" unique_id=520186146]
+position = Vector2(242, 579)
+
+[node name="Spawn_1" type="Node2D" parent="EndingSpawns" unique_id=1791944739]
+position = Vector2(266, 449)
+
+[node name="Spawn_2" type="Node2D" parent="EndingSpawns" unique_id=1104748391]
+position = Vector2(336, 343)
+
+[node name="Spawn_3" type="Node2D" parent="EndingSpawns" unique_id=64544411]
+position = Vector2(432, 273)
+
+[node name="Spawn_4" type="Node2D" parent="EndingSpawns" unique_id=648280823]
+position = Vector2(542, 226)
+
+[node name="Spawn_5" type="Node2D" parent="EndingSpawns" unique_id=352101507]
+position = Vector2(691, 230)
+
+[node name="Spawn_6" type="Node2D" parent="EndingSpawns" unique_id=705735121]
+position = Vector2(801, 313)
+
+[node name="Spawn_7" type="Node2D" parent="EndingSpawns" unique_id=1902563015]
+position = Vector2(856, 388)
+
+[node name="Spawn_8" type="Node2D" parent="EndingSpawns" unique_id=1103681659]
+position = Vector2(905, 484)
+
+[node name="Spawn_9" type="Node2D" parent="EndingSpawns" unique_id=1099961290]
+position = Vector2(914, 577)
+
+[node name="EndingInterval" type="Timer" parent="." unique_id=577251322]
+
 [connection signal="GhostDroppedOff" from="Player" to="DropArea" method="_on_player_ghost_dropped_off"]
 [connection signal="GhostDroppedOff" from="Player" to="CanvasLayer/Control" method="_on_player_ghost_dropped_off"]
 [connection signal="child_exiting_tree" from="Ghosts" to="." method="_on_ghosts_child_exiting_tree"]
