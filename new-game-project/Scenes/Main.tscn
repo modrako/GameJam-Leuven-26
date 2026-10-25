@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://cqow47bch5ocs"]
 
+[ext_resource type="Script" uid="uid://cm5wdch83cjgf" path="res://Scripts/game.gd" id="1_fq0cl"]
 [ext_resource type="Texture2D" uid="uid://km8pw05et2pv" path="res://Sprites/tileset.png" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://5u5rgnkyx0nl" path="res://Objects/RoomTrigger.tscn" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://dno2lcgn0o41e" path="res://Objects/child.tscn" id="4_0sclb"]
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://b83tl0lwmtxrd" path="res://Sprites/room0.png" id="5_50glp"]
-[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://bvmx52rprbb7i" path="res://Sprites/room2.png" id="6_bmxlf"]
 [ext_resource type="Texture2D" uid="uid://dfo6eebscdef7" path="res://Sprites/room1.png" id="6_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://dkstocyjx5yrc" path="res://Sprites/room3.png" id="8_frkhe"]
@@ -477,7 +477,8 @@ _data = {
 &"Show": SubResource("Animation_346fj")
 }
 
-[node name="Node2D" type="Node2D" unique_id=877318733]
+[node name="Game" type="Node2D" unique_id=877318733]
+script = ExtResource("1_fq0cl")
 
 [node name="Platform" type="Node" parent="." unique_id=1569483858]
 
@@ -793,6 +794,8 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("13_1p5hy")
 centered = false
 
+[node name="Enemies" type="Node" parent="." unique_id=1491606965]
+
 [node name="DropArea" type="Area2D" parent="." unique_id=1236577294]
 z_index = -1
 position = Vector2(563, 544)
@@ -928,9 +931,6 @@ horizontal_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/GhostLeft" unique_id=315415879]
 libraries/ = SubResource("AnimationLibrary_0sclb")
 
-[node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("5_pbw6q")]
-position = Vector2(933, 521)
-target = NodePath("../Player")
-
 [connection signal="GhostDroppedOff" from="Player" to="CanvasLayer/Control" method="_on_player_ghost_dropped_off"]
+[connection signal="child_exiting_tree" from="Ghosts" to="." method="_on_ghosts_child_exiting_tree"]
 [connection signal="body_entered" from="DropArea" to="Player" method="_on_drop_off_enter"]

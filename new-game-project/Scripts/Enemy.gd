@@ -2,7 +2,7 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var target : PhysicsBody2D
+var target : PhysicsBody2D
 
 signal Hit(enemyPostion: Vector2)
 
