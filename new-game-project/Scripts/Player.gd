@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 #region movementVariables
 @export var moveSpeed := 300
 @export var knockBackStrength:float = 40;
@@ -24,6 +25,7 @@ var shortJumpScale := 3
 var canJump = false
 var IsPlayerInKnockBack: bool = false
 var WasInAirLastFrame = false
+var LookX = 1
 #endregion
 #TODO: Coyote Time
 #TODO: Jump buffer
@@ -84,10 +86,12 @@ func _physics_process(delta: float) -> void:
 func Move() -> void:
 	if Input.is_action_pressed("move_left"):
 		spriteAnim.flip_h = true
+		LookX = -1
 		spriteAnim.play("Walk")
 		velocity.x = -moveSpeed
 	elif Input.is_action_pressed("move_right"):
 		spriteAnim.flip_h = false
+		LookX = 1
 		spriteAnim.play("Walk")
 		velocity.x = moveSpeed
 	else:

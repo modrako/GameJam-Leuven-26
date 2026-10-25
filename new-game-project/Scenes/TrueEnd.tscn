@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyp1n2c5xtqu4"]
 
 [ext_resource type="Texture2D" uid="uid://5ico16urmi4x" path="res://Sprites/true_ending.png" id="1_3jcoi"]
-[ext_resource type="Script" uid="uid://c6pqdfl1r2hdc" path="res://Scenes/true_end.gd" id="1_xh7c2"]
+[ext_resource type="Script" uid="uid://c6pqdfl1r2hdc" path="res://Scripts/true_end.gd" id="1_xh7c2"]
 [ext_resource type="AudioStream" uid="uid://0t5gwx6hatss" path="res://Music/NeckSnap.mp3" id="2_xh7c2"]
 [ext_resource type="AudioStream" uid="uid://hkiqy3125rlh" path="res://Music/Wind.mp3" id="3_t7q65"]
 

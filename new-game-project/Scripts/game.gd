@@ -6,6 +6,7 @@ extends Node2D
 @onready var player := $Player
 const ENEMY_CHASER = preload("uid://2jiv4jnq2lkl")
 const ENEMY_BOOMERANG = preload("uid://dv6km1irfpcfs")
+const ENEMY_WEEPING = preload("uid://c7nyfoqu0ihdv")
 
 var maxChildren : int
 var numChildren : int
@@ -17,11 +18,12 @@ enum Difficulty{
 
 enum EnemyTypes{
 	chaser,
-	boomerang
+	boomerang,
+	weeping,
 }
 
 @export var enemyPlan : Array[EnemyTypes] = [
-	EnemyTypes.chaser, EnemyTypes.boomerang, EnemyTypes.boomerang, EnemyTypes.chaser]
+	EnemyTypes.weeping, EnemyTypes.boomerang, EnemyTypes.boomerang, EnemyTypes.chaser]
 
 func _ready() -> void:
 	maxChildren = ghosts.get_child_count()
@@ -43,6 +45,8 @@ func SpawnEnemy():
 		newEnemy = ENEMY_CHASER.instantiate()
 	elif enemyPlan[difficultyIndex] == EnemyTypes.boomerang:
 		newEnemy = ENEMY_BOOMERANG.instantiate()
+	elif enemyPlan[difficultyIndex] == EnemyTypes.weeping:
+		newEnemy = ENEMY_WEEPING.instantiate()
 		
 	newEnemy.target = player
 	newEnemy.position = Vector2(door.position.x, door.position.y - 300)

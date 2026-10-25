@@ -479,6 +479,7 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=877318733]
 script = ExtResource("1_fq0cl")
+enemyPlan = Array[int]([2, 1, 0, 0])
 
 [node name="Platform" type="Node" parent="." unique_id=1569483858]
 
