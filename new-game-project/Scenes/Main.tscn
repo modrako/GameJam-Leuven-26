@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://5u5rgnkyx0nl" path="res://Objects/RoomTrigger.tscn" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="4_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://dv6km1irfpcfs" path="res://Objects/EnemyBoomerang.tscn" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://dno2lcgn0o41e" path="res://Objects/child.tscn" id="7_jw32o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idj7w"]
 texture = ExtResource("1_r150o")
@@ -531,3 +534,15 @@ position = Vector2(0, -1944)
 position = Vector2(577.00006, 598)
 rotation = 1.5707964
 scale = Vector2(1, 15.799984)
+
+[node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("5_pbw6q")]
+position = Vector2(897, 470)
+target = NodePath("../Player")
+
+[node name="BoomerangEnemy" parent="." unique_id=964709311 node_paths=PackedStringArray("target") instance=ExtResource("6_v1gob")]
+position = Vector2(389, 418)
+target = NodePath("../Player")
+
+[node name="Child" parent="." unique_id=1062660865 node_paths=PackedStringArray("player") instance=ExtResource("7_jw32o")]
+position = Vector2(711, 484)
+player = NodePath("../Player")
