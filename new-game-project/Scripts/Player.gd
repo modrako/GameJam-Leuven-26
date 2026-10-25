@@ -115,7 +115,10 @@ func on_enemy_hit(enemyPosition: Vector2):
 func _on_drop_off_enter(body: Node2D) -> void:
 	if body == self:
 		for i in collectedChildren:
+			if i.saved == true:
+				continue
 			i.saved = true
+			i.Save()
 		collectedChildren.clear()
 	
 func AnimateIframes():

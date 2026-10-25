@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var isCollected : bool = false
 var saved : bool = false
-@onready var collectArea = $CollectArea
+@onready var collectArea = $"../DropArea"
 @onready var dropArea = $"../DropArea"
 
 @export var player : PhysicsBody2D
@@ -13,10 +13,7 @@ var maxDistance = 400
 var speed
 
 func _physics_process(delta: float) -> void:
-	if saved:
-		move_and_collide(position.direction_to(dropArea.position) * maxSpeed * delta)
-	
-	elif isCollected and not collectArea.overlaps_body(player):
+	if isCollected and not collectArea.overlaps_body(player) and not saved:
 		var moveDirection := position.direction_to(player.position)
 		var toPlayer = position.distance_to(player.position)
 		
@@ -34,4 +31,9 @@ func _on_collect_area_body_entered(body: Node2D) -> void:
 	if body == player and player.collectedChildren.size() < player.MAX_CHILDREN and not isCollected:
 		isCollected = true
 		player.collectedChildren.push_back(self)
-		
+
+func Save():
+	var saveAnim : Tween = create_tween()
+	saveAnim.tween_property(self, "position", dropArea.position, self.position.distance_to(dropArea.position) / maxSpeed)
+	saveAnim.tween_callback(self.queue_free)
+	

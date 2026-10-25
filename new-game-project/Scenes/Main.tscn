@@ -394,6 +394,8 @@ terrain_set_0/terrain_0/name = "Manor"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_idj7w")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32o"]
+
 [node name="Node2D" type="Node2D" unique_id=877318733]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=274165957]
@@ -403,11 +405,11 @@ tile_set = SubResource("TileSet_nwlwb")
 navigation_enabled = false
 
 [node name="Camera2D" parent="." unique_id=712204054 instance=ExtResource("2_kln2b")]
-position = Vector2(-14, 9)
 
 [node name="Player" parent="." unique_id=1841270351 instance=ExtResource("4_rgh2o")]
 position = Vector2(560, 547)
 scale = Vector2(0.6, 0.6)
+collision_mask = 1
 knockBackStrength = 800.0
 
 [node name="Rooms" type="Node" parent="." unique_id=839210916]
@@ -535,6 +537,37 @@ position = Vector2(577.00006, 598)
 rotation = 1.5707964
 scale = Vector2(1, 15.799984)
 
+[node name="Room_9" type="Node2D" parent="Rooms" unique_id=289016976]
+position = Vector2(-1152, -1296)
+
+[node name="Down" parent="Rooms/Room_9" unique_id=168635062 instance=ExtResource("3_rgh2o")]
+position = Vector2(597, 631)
+rotation = 1.5707964
+scale = Vector2(1, 10.999979)
+
+[node name="Right" parent="Rooms/Room_9" unique_id=1352870430 instance=ExtResource("3_rgh2o")]
+position = Vector2(1123.9999, 56)
+rotation = 1.5707964
+scale = Vector2(9.68, 0.59998035)
+
 [node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("5_pbw6q")]
 position = Vector2(701, 528)
 target = NodePath("../Player")
+
+[node name="DropArea" type="Area2D" parent="." unique_id=1236577294]
+z_index = -1
+position = Vector2(563, 544)
+
+[node name="ColorRect" type="ColorRect" parent="DropArea" unique_id=1697487223]
+offset_left = -61.0
+offset_top = -60.999996
+offset_right = 19.411713
+offset_bottom = 19.411716
+scale = Vector2(1.5094633, 1.5094633)
+color = Color(0.26768064, 0.72441876, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea" unique_id=650145144]
+scale = Vector2(6.055, 6.055)
+shape = SubResource("RectangleShape2D_jw32o")
+
+[connection signal="body_entered" from="DropArea" to="Player" method="_on_drop_off_enter"]
