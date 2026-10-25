@@ -1,5 +1,6 @@
 extends Enemy
 
+@onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var shoot_timer: Timer = $ShootTimer
 @export var projectile:Boomerang
 @export var timerVariance:float = 5
@@ -38,6 +39,7 @@ func RotateAroundPlayer(delta:float):
 func _onBoomerangReturned() -> void:
 	setAndStartTimer()
 	State = States.SPIN
+	anim_sprite.play("ReSpin")
 	
 func setAndStartTimer() -> void:
 	shoot_timer.wait_time =timerBase + randf_range(-timerVariance,timerVariance)
@@ -48,3 +50,11 @@ func _on_shoot_timer_timeout() -> void:
 	State = States.ATTACK
 	angleDirection *= -1
 	Attack.emit()
+	anim_sprite.play("Shoot")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if State == States.SPIN:
+		anim_sprite.play("Idle")
+	else:
+		anim_sprite.play("Chilling")

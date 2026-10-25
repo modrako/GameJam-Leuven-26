@@ -1,20 +1,109 @@
 [gd_scene format=3 uid="uid://2jiv4jnq2lkl"]
 
 [ext_resource type="Script" uid="uid://ca5n72k2gcjog" path="res://Scripts/EnemyChaser.gd" id="1_8i4bw"]
-[ext_resource type="Texture2D" uid="uid://8imr7eja5a6a" path="res://Sprites/SpookyOldMan.png" id="2_bbgcn"]
+[ext_resource type="Texture2D" uid="uid://cj7a5mx5ek068" path="res://Sprites/spritesheet_enemies.png" id="2_he07h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nwlwb"]
 radius = 27.018513
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o1n87"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlup8"]
+atlas = ExtResource("2_he07h")
+region = Rect2(1500, 1800, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj114"]
+atlas = ExtResource("2_he07h")
+region = Rect2(0, 2100, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ohwo"]
+atlas = ExtResource("2_he07h")
+region = Rect2(300, 2100, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_menxd"]
+atlas = ExtResource("2_he07h")
+region = Rect2(600, 2100, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjj2j"]
+atlas = ExtResource("2_he07h")
+region = Rect2(900, 2100, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovf56"]
+atlas = ExtResource("2_he07h")
+region = Rect2(1200, 2100, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o56pp"]
+atlas = ExtResource("2_he07h")
+region = Rect2(1500, 2100, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwsvc"]
+atlas = ExtResource("2_he07h")
+region = Rect2(0, 2400, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhvta"]
+atlas = ExtResource("2_he07h")
+region = Rect2(300, 2400, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqjl0"]
+atlas = ExtResource("2_he07h")
+region = Rect2(600, 2400, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s63a"]
+atlas = ExtResource("2_he07h")
+region = Rect2(900, 2400, 300, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0wt3"]
+atlas = ExtResource("2_he07h")
+region = Rect2(1200, 2400, 300, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwlwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlup8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj114")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ohwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_menxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjj2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovf56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o56pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwsvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhvta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqjl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s63a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0wt3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
 [node name="EnemyChaser" type="CharacterBody2D" unique_id=683529726]
+scale = Vector2(2, 2)
 motion_mode = 1
 script = ExtResource("1_8i4bw")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817923285]
-scale = Vector2(0.1, 0.045)
-texture = ExtResource("2_bbgcn")
 
 [node name="Area2d" type="Area2D" parent="." unique_id=2016405033]
 
@@ -25,5 +114,13 @@ shape = SubResource("CircleShape2D_nwlwb")
 shape = SubResource("CircleShape2D_o1n87")
 disabled = true
 debug_color = Color(0.9588694, 0, 0.5220944, 0.07058824)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1517551910]
+self_modulate = Color(1, 1, 1, 0.78431374)
+position = Vector2(-3, 28)
+scale = Vector2(0.40166664, 0.40166664)
+sprite_frames = SubResource("SpriteFrames_nwlwb")
+autoplay = "default"
+frame_progress = 0.5796009
 
 [connection signal="body_entered" from="Area2d" to="." method="_on_on_body_entered"]
