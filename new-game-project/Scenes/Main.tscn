@@ -409,8 +409,8 @@ navigation_enabled = false
 [node name="Player" parent="." unique_id=1841270351 instance=ExtResource("4_rgh2o")]
 position = Vector2(560, 547)
 scale = Vector2(0.6, 0.6)
-knockBackStrength = 800.0
 collision_mask = 1
+knockBackStrength = 800.0
 
 [node name="Rooms" type="Node" parent="." unique_id=839210916]
 
@@ -536,6 +536,19 @@ position = Vector2(0, -1944)
 position = Vector2(577.00006, 598)
 rotation = 1.5707964
 scale = Vector2(1, 15.799984)
+
+[node name="Room_9" type="Node2D" parent="Rooms" unique_id=289016976]
+position = Vector2(-1152, -1296)
+
+[node name="Down" parent="Rooms/Room_9" unique_id=168635062 instance=ExtResource("3_rgh2o")]
+position = Vector2(597, 631)
+rotation = 1.5707964
+scale = Vector2(1, 10.999979)
+
+[node name="Right" parent="Rooms/Room_9" unique_id=1352870430 instance=ExtResource("3_rgh2o")]
+position = Vector2(1123.9999, 56)
+rotation = 1.5707964
+scale = Vector2(9.68, 0.59998035)
 
 [node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("5_pbw6q")]
 position = Vector2(701, 528)
