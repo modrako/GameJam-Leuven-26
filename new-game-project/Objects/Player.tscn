@@ -179,6 +179,170 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3r0k"]
 size = Vector2(35, 98)
 
+[sub_resource type="Animation" id="Animation_u60sl"]
+resource_name = "Falling"
+length = 180.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.3, 0.45)]
+}
+
+[sub_resource type="Animation" id="Animation_gijnf"]
+resource_name = "HitGround"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(2.5, 1, 1),
+"update": 0,
+"values": [Vector2(0.6, 0.2), Vector2(0.3, 0.6), Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000845, 0.25),
+"transitions": PackedFloat32Array(2.5, 1, 1),
+"update": 0,
+"values": [Vector2(0, 29), Vector2(0, -30), Vector2(0, -6.7762636e-21)]
+}
+
+[sub_resource type="Animation" id="Animation_t1tke"]
+resource_name = "Hurt"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [-0.38397244, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n6db0"]
+resource_name = "walk"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25),
+"transitions": PackedFloat32Array(2.828428, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.5), Vector2(0.5, 0.3), Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -14), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yk4ok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gijnf"]
+_data = {
+&"Falling": SubResource("Animation_u60sl"),
+&"HitGround": SubResource("Animation_gijnf"),
+&"Hurt": SubResource("Animation_t1tke"),
+&"Jump": SubResource("Animation_n6db0"),
+&"RESET": SubResource("Animation_yk4ok")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=1841270351]
 collision_mask = 3
 script = ExtResource("1_n6db0")
@@ -186,7 +350,8 @@ script = ExtResource("1_n6db0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1413722733]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_ncg1j")
-animation = &"Walk"
+animation = &"Idle"
+frame_progress = 0.8272618
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951849645]
 position = Vector2(2.5, 9)
@@ -197,4 +362,11 @@ process_callback = 0
 wait_time = 0.25
 
 [node name="IFrames" type="Timer" parent="." unique_id=1838270852]
-wait_time = 0.5
+one_shot = true
+
+[node name="KnockBackTimer" type="Timer" parent="." unique_id=236606001]
+wait_time = 0.1
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=179291163]
+libraries/ = SubResource("AnimationLibrary_gijnf")
