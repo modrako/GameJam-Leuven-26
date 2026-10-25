@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://dyp1n2c5xtqu4"]
+
+[ext_resource type="Texture2D" uid="uid://5ico16urmi4x" path="res://Sprites/true_ending.png" id="1_3jcoi"]
+[ext_resource type="Script" uid="uid://c6pqdfl1r2hdc" path="res://Scenes/true_end.gd" id="1_xh7c2"]
+[ext_resource type="AudioStream" uid="uid://0t5gwx6hatss" path="res://Music/NeckSnap.mp3" id="2_xh7c2"]
+[ext_resource type="AudioStream" uid="uid://hkiqy3125rlh" path="res://Music/Wind.mp3" id="3_t7q65"]
+
+[sub_resource type="Animation" id="Animation_hddes"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sooo8"]
+resource_name = "anim"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.18, 0.22, 3, 5.0333333),
+"transitions": PackedFloat32Array(0.5, 0.25000033, 1, 1, 1),
+"update": 0,
+"values": [Color(0.9999363, 0.43238312, 0.3867931, 1), Color(0.50601935, 0.0054430766, 6.738305e-07, 1), Color(0.5330367, 0.5330367, 0.5330367, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.0666666, 4.6366663, 17.866667, 17.966667),
+"transitions": PackedFloat32Array(1, 1.7, 1, 1e-05, 3.386143e-05),
+"update": 0,
+"values": [-80.0, -80.0, 0.0, 0.0, -80.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.031805, 18, 18.1),
+"transitions": PackedFloat32Array(1, 1e-05, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_35gkh"]
+_data = {
+&"RESET": SubResource("Animation_hddes"),
+&"anim": SubResource("Animation_sooo8")
+}
+
+[node name="Control" type="Control" unique_id=761638368]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xh7c2")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1464931798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_3jcoi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=613431105]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 246.0
+offset_right = 688.0
+offset_bottom = 616.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=713452995]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=726817105]
+stream = ExtResource("2_xh7c2")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=753905958]
+stream = ExtResource("3_t7q65")
+volume_db = -80.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=594449434]
+libraries/ = SubResource("AnimationLibrary_35gkh")
+autoplay = &"anim"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
