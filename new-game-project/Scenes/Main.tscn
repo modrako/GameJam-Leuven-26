@@ -4,7 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://5u5rgnkyx0nl" path="res://Objects/RoomTrigger.tscn" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="4_rgh2o"]
+[ext_resource type="Texture2D" uid="uid://b83tl0lwmtxrd" path="res://Sprites/room0.png" id="5_50glp"]
 [ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="5_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://bvmx52rprbb7i" path="res://Sprites/room2.png" id="6_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://dfo6eebscdef7" path="res://Sprites/room1.png" id="6_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://dkstocyjx5yrc" path="res://Sprites/room3.png" id="8_frkhe"]
+[ext_resource type="Texture2D" uid="uid://hnwda6d1g6oa" path="res://Sprites/room4.png" id="9_1p5hy"]
+[ext_resource type="Texture2D" uid="uid://3t1836wjy0tb" path="res://Sprites/room5.png" id="10_h1m7h"]
+[ext_resource type="Texture2D" uid="uid://bnj3elak8m3lh" path="res://Sprites/room7.png" id="11_h1m7h"]
+[ext_resource type="Texture2D" uid="uid://bb3fp1cnsxbgi" path="res://Sprites/room6.png" id="12_erwvk"]
+[ext_resource type="Texture2D" uid="uid://dud8jx33naaeg" path="res://Sprites/room8.png" id="13_1p5hy"]
+[ext_resource type="Texture2D" uid="uid://bp0cpsxqm1h1j" path="res://Sprites/attic.png" id="13_h1m7h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idj7w"]
 texture = ExtResource("1_r150o")
@@ -424,6 +434,13 @@ scale = Vector2(1, 7.159995)
 position = Vector2(1138, 539)
 scale = Vector2(1, 7.159995)
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_0" unique_id=133020118]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_50glp")
+centered = false
+
 [node name="Room_1" type="Node2D" parent="Rooms" unique_id=629417099]
 position = Vector2(1152, 0)
 
@@ -435,6 +452,13 @@ scale = Vector2(1, 7.159995)
 position = Vector2(568, 25.000002)
 scale = Vector2(17.04, 0.6399956)
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_1" unique_id=28955716]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_bmxlf")
+centered = false
+
 [node name="Room_2" type="Node2D" parent="Rooms" unique_id=669295412]
 position = Vector2(-1152, 0)
 
@@ -445,6 +469,13 @@ scale = Vector2(1, 7.159995)
 [node name="Up" parent="Rooms/Room_2" unique_id=1885228418 instance=ExtResource("3_rgh2o")]
 position = Vector2(591.00006, 25)
 scale = Vector2(17.04, 0.6399956)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_2" unique_id=232671484]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_vy5pj")
+centered = false
 
 [node name="Room_3" type="Node2D" parent="Rooms" unique_id=630490710]
 position = Vector2(-1152, -648)
@@ -461,6 +492,13 @@ scale = Vector2(1, 7.159995)
 position = Vector2(591.00006, 31)
 scale = Vector2(17.04, 0.6399956)
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_3" unique_id=1744501637]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("8_frkhe")
+centered = false
+
 [node name="Room_4" type="Node2D" parent="Rooms" unique_id=981853388]
 position = Vector2(0, -648)
 
@@ -476,6 +514,13 @@ scale = Vector2(1, 8.679994)
 [node name="Up" parent="Rooms/Room_4" unique_id=1840581206 instance=ExtResource("3_rgh2o")]
 position = Vector2(600.00006, 30)
 scale = Vector2(17.320002, 0.6399956)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_4" unique_id=1534103208]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_1p5hy")
+centered = false
 
 [node name="Room_5" type="Node2D" parent="Rooms" unique_id=2136320889]
 position = Vector2(1152, -648)
@@ -494,6 +539,13 @@ scale = Vector2(1, 9.159974)
 position = Vector2(566.00006, 32)
 scale = Vector2(17.320002, 0.6399956)
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_5" unique_id=812798657]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_h1m7h")
+centered = false
+
 [node name="Room_6" type="Node2D" parent="Rooms" unique_id=1800748631]
 position = Vector2(1152, -1296)
 
@@ -506,6 +558,13 @@ scale = Vector2(11.767479, 0.55607504)
 position = Vector2(565, 628)
 rotation = 1.5707964
 scale = Vector2(1, 9.159974)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_6" unique_id=847717855]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_h1m7h")
+centered = false
 
 [node name="Room_7" type="Node2D" parent="Rooms" unique_id=1369159864]
 position = Vector2(0, -1296)
@@ -529,6 +588,13 @@ scale = Vector2(1, 9.479984)
 position = Vector2(562, 2.000002)
 scale = Vector2(25.57065, 0.71772546)
 
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_7" unique_id=1237073382]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("12_erwvk")
+centered = false
+
 [node name="Room_8" type="Node2D" parent="Rooms" unique_id=1042103014]
 position = Vector2(0, -1944)
 
@@ -536,6 +602,12 @@ position = Vector2(0, -1944)
 position = Vector2(577.00006, 598)
 rotation = 1.5707964
 scale = Vector2(1, 15.799984)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_8" unique_id=2044636323]
+z_index = -1
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("13_h1m7h")
+centered = false
 
 [node name="Room_9" type="Node2D" parent="Rooms" unique_id=289016976]
 position = Vector2(-1152, -1296)
@@ -549,6 +621,13 @@ scale = Vector2(1, 10.999979)
 position = Vector2(1123.9999, 56)
 rotation = 1.5707964
 scale = Vector2(9.68, 0.59998035)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/Room_9" unique_id=661148621]
+z_index = -1
+position = Vector2(0, -37.5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("13_1p5hy")
+centered = false
 
 [node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("5_pbw6q")]
 position = Vector2(701, 528)
