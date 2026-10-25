@@ -8,6 +8,7 @@ extends Control
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var animation_player: AnimationPlayer = $GhostLeft/AnimationPlayer
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	current_hp_label.text = str(player.health)
 	max_hp.text = str(player.maxHealth)

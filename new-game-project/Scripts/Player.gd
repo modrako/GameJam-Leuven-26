@@ -41,6 +41,7 @@ var collectedChildren = []
 var alive = true
 
 signal GhostDroppedOff()
+
 func _ready() -> void:
 	health = maxHealth
 func _physics_process(delta: float) -> void:
@@ -141,7 +142,7 @@ func on_enemy_hit(enemyPosition: Vector2):
 			hit_sfx.play()
 
 func _on_drop_off_enter(body: Node2D) -> void:
-	if body == self:
+	if body == self and not collectedChildren.is_empty():
 		for i in collectedChildren:
 			if i.saved == true:
 				continue

@@ -6,6 +6,7 @@ var saved : bool = false
 @onready var dropArea = $"../../DropArea"
 @onready var animSprite = $AnimatedSprite2D
 @onready var player : PhysicsBody2D = $"../../Player"
+@onready var gameManager : Node2D = $"../.."
 
 var minSpeed = 50
 @onready var maxSpeed = player.moveSpeed + 100
