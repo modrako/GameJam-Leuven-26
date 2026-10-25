@@ -48,12 +48,13 @@ func _physics_process(delta: float) -> void:
 		Move()
 		Jump()
 	if not is_on_floor():
-		if velocity.y <= 0:
-			spriteAnim.play("Rise")
-		else:
-			spriteAnim.play("Fall")
-			if !animation_player.is_playing() && WasInAirLastFrame == true:
-				animation_player.play("Falling")
+		if !IsPlayerInKnockBack:
+			if velocity.y <= 0:
+				spriteAnim.play("Rise")
+			else:
+				spriteAnim.play("Fall")
+				if !animation_player.is_playing() && WasInAirLastFrame == true:
+					animation_player.play("Falling")
 	
 	if i_frames.time_left >0:
 		AnimateIframes()
