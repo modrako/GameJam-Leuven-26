@@ -396,6 +396,8 @@ terrain_set_0/terrain_0/name = "Manor"
 terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_idj7w")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32o"]
+
 [node name="Node2D" type="Node2D" unique_id=877318733]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=274165957]
@@ -409,6 +411,7 @@ navigation_enabled = false
 [node name="Player" parent="." unique_id=1841270351 instance=ExtResource("4_rgh2o")]
 position = Vector2(560, 547)
 scale = Vector2(0.6, 0.6)
+collision_mask = 1
 
 [node name="Rooms" type="Node" parent="." unique_id=839210916]
 
@@ -536,13 +539,33 @@ rotation = 1.5707964
 scale = Vector2(1, 15.799984)
 
 [node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("5_pbw6q")]
+visible = false
 position = Vector2(897, 470)
 target = NodePath("../Player")
 
 [node name="BoomerangEnemy" parent="." unique_id=964709311 node_paths=PackedStringArray("target") instance=ExtResource("6_v1gob")]
+visible = false
 position = Vector2(389, 418)
 target = NodePath("../Player")
 
 [node name="Child" parent="." unique_id=1062660865 node_paths=PackedStringArray("player") instance=ExtResource("7_jw32o")]
 position = Vector2(711, 484)
 player = NodePath("../Player")
+
+[node name="DropArea" type="Area2D" parent="." unique_id=1236577294]
+z_index = -1
+position = Vector2(563, 544)
+
+[node name="ColorRect" type="ColorRect" parent="DropArea" unique_id=1697487223]
+offset_left = -61.0
+offset_top = -60.999996
+offset_right = 19.411713
+offset_bottom = 19.411716
+scale = Vector2(1.5094633, 1.5094633)
+color = Color(0.26768064, 0.72441876, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea" unique_id=650145144]
+scale = Vector2(6.055, 6.055)
+shape = SubResource("RectangleShape2D_jw32o")
+
+[connection signal="body_entered" from="DropArea" to="Player" method="_on_drop_off_enter"]
