@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://km8pw05et2pv" path="res://Sprites/tileset.png" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_kln2b"]
 [ext_resource type="PackedScene" uid="uid://5u5rgnkyx0nl" path="res://Objects/RoomTrigger.tscn" id="3_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://dno2lcgn0o41e" path="res://Objects/child.tscn" id="4_0sclb"]
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://b83tl0lwmtxrd" path="res://Sprites/room0.png" id="5_50glp"]
 [ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="5_pbw6q"]
@@ -490,9 +491,48 @@ scale = Vector2(0.6, 0.6)
 collision_mask = 1
 knockBackStrength = 800.0
 
+[node name="Ghosts" type="Node" parent="." unique_id=1457083845]
+
+[node name="Child" parent="Ghosts" unique_id=1062660865 instance=ExtResource("4_0sclb")]
+position = Vector2(-87, 116)
+
+[node name="Child2" parent="Ghosts" unique_id=1409164025 instance=ExtResource("4_0sclb")]
+position = Vector2(-1063, -498)
+
+[node name="Child3" parent="Ghosts" unique_id=27907981 instance=ExtResource("4_0sclb")]
+position = Vector2(-990, -1119)
+
+[node name="Child4" parent="Ghosts" unique_id=15923753 instance=ExtResource("4_0sclb")]
+position = Vector2(499, -1873)
+
+[node name="Child5" parent="Ghosts" unique_id=464848508 instance=ExtResource("4_0sclb")]
+position = Vector2(1079, -1873)
+
+[node name="Child6" parent="Ghosts" unique_id=73600834 instance=ExtResource("4_0sclb")]
+position = Vector2(1246, -1114)
+
+[node name="Child7" parent="Ghosts" unique_id=695370719 instance=ExtResource("4_0sclb")]
+position = Vector2(-73, -1230)
+
+[node name="Child8" parent="Ghosts" unique_id=468041449 instance=ExtResource("4_0sclb")]
+position = Vector2(1363, 95)
+
+[node name="Child9" parent="Ghosts" unique_id=423922282 instance=ExtResource("4_0sclb")]
+position = Vector2(117, -442)
+
+[node name="Child10" parent="Ghosts" unique_id=231183643 instance=ExtResource("4_0sclb")]
+position = Vector2(2225, -219)
+
+[node name="Child11" parent="Ghosts" unique_id=1223986647 instance=ExtResource("4_0sclb")]
+position = Vector2(1059, -535)
+
+[node name="Child12" parent="Ghosts" unique_id=560941942 instance=ExtResource("4_0sclb")]
+position = Vector2(109, -974)
+
 [node name="Rooms" type="Node" parent="." unique_id=839210916]
 
 [node name="Room_0" type="Node2D" parent="Rooms" unique_id=309233904]
+metadata/_edit_lock_ = true
 
 [node name="Left" parent="Rooms/Room_0" unique_id=1163785020 instance=ExtResource("3_rgh2o")]
 position = Vector2(28, 539)
@@ -511,6 +551,7 @@ centered = false
 
 [node name="Room_1" type="Node2D" parent="Rooms" unique_id=629417099]
 position = Vector2(1152, 0)
+metadata/_edit_lock_ = true
 
 [node name="Left" parent="Rooms/Room_1" unique_id=787365251 instance=ExtResource("3_rgh2o")]
 position = Vector2(28, 539)
@@ -529,6 +570,7 @@ centered = false
 
 [node name="Room_2" type="Node2D" parent="Rooms" unique_id=669295412]
 position = Vector2(-1152, 0)
+metadata/_edit_lock_ = true
 
 [node name="Right" parent="Rooms/Room_2" unique_id=951999645 instance=ExtResource("3_rgh2o")]
 position = Vector2(1129, 538)
@@ -547,6 +589,7 @@ centered = false
 
 [node name="Room_3" type="Node2D" parent="Rooms" unique_id=630490710]
 position = Vector2(-1152, -648)
+metadata/_edit_lock_ = true
 
 [node name="Down" parent="Rooms/Room_3" unique_id=1793001048 instance=ExtResource("3_rgh2o")]
 position = Vector2(590, 620)
@@ -569,6 +612,7 @@ centered = false
 
 [node name="Room_4" type="Node2D" parent="Rooms" unique_id=981853388]
 position = Vector2(0, -648)
+metadata/_edit_lock_ = true
 
 [node name="Left" parent="Rooms/Room_4" unique_id=863952201 instance=ExtResource("3_rgh2o")]
 position = Vector2(26.999998, 550)
@@ -592,6 +636,7 @@ centered = false
 
 [node name="Room_5" type="Node2D" parent="Rooms" unique_id=2136320889]
 position = Vector2(1152, -648)
+metadata/_edit_lock_ = true
 
 [node name="Left" parent="Rooms/Room_5" unique_id=443036130 instance=ExtResource("3_rgh2o")]
 position = Vector2(34, 528)
@@ -613,9 +658,11 @@ position = Vector2(0, -37.5)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("10_h1m7h")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Room_6" type="Node2D" parent="Rooms" unique_id=1800748631]
 position = Vector2(1152, -1296)
+metadata/_edit_lock_ = true
 
 [node name="Left" parent="Rooms/Room_6" unique_id=1580476485 instance=ExtResource("3_rgh2o")]
 position = Vector2(34, 416)
@@ -636,6 +683,7 @@ centered = false
 
 [node name="Room_7" type="Node2D" parent="Rooms" unique_id=1369159864]
 position = Vector2(0, -1296)
+metadata/_edit_lock_ = true
 
 [node name="Left" parent="Rooms/Room_7" unique_id=1830710193 instance=ExtResource("3_rgh2o")]
 position = Vector2(26.000002, 57)
@@ -665,6 +713,7 @@ centered = false
 
 [node name="Room_8" type="Node2D" parent="Rooms" unique_id=1042103014]
 position = Vector2(0, -1944)
+metadata/_edit_lock_ = true
 
 [node name="Down" parent="Rooms/Room_8" unique_id=396840623 instance=ExtResource("3_rgh2o")]
 position = Vector2(577.00006, 598)
@@ -679,6 +728,7 @@ centered = false
 
 [node name="Room_9" type="Node2D" parent="Rooms" unique_id=289016976]
 position = Vector2(-1152, -1296)
+metadata/_edit_lock_ = true
 
 [node name="Down" parent="Rooms/Room_9" unique_id=168635062 instance=ExtResource("3_rgh2o")]
 position = Vector2(597, 631)
