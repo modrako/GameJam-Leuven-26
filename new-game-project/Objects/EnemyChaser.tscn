@@ -101,7 +101,7 @@ animations = [{
 }]
 
 [node name="EnemyChaser" type="CharacterBody2D" unique_id=683529726]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 motion_mode = 1
 script = ExtResource("1_8i4bw")
 
@@ -121,6 +121,6 @@ position = Vector2(-3, 28)
 scale = Vector2(0.40166664, 0.40166664)
 sprite_frames = SubResource("SpriteFrames_nwlwb")
 autoplay = "default"
-frame_progress = 0.5796009
+frame_progress = 0.5369329
 
 [connection signal="body_entered" from="Area2d" to="." method="_on_on_body_entered"]
