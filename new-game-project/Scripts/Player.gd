@@ -27,14 +27,16 @@ var WasInAirLastFrame = false
 #TODO: Death
 #TODO: I-frames
 
-@export var health := 5
+@export var maxHealth := 5
 @onready var spriteAnim = $AnimatedSprite2D
+var health: int
 
 const MAX_CHILDREN := 3
 var collectedChildren = []
 
 var alive = true
-
+func _ready() -> void:
+	health = maxHealth
 func _physics_process(delta: float) -> void:
 	if not alive:
 		return

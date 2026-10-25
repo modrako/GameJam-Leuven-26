@@ -6,6 +6,6 @@
 Label/colors/font_color = Color(0.9906985, 0.89395756, 0.80526596, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 0.60784316)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.21568628)
-Label/constants/outline_size = 16
+Label/constants/outline_size = 32
 Label/font_sizes/font_size = 96
 Label/fonts/font = ExtResource("1_4picd")
