@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://5ysbtvfmo4w0"]
 
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="1_1vpby"]
-[ext_resource type="PackedScene" uid="uid://dno2lcgn0o41e" path="res://Objects/child.tscn" id="2_6n652"]
 [ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_afu10"]
-[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="4_l38h5"]
+[ext_resource type="PackedScene" uid="uid://ccaw6504xb523" path="res://Objects/OneWayPlatform.tscn" id="3_afu10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3r0k"]
 size = Vector2(40, 40)
@@ -64,10 +63,6 @@ shape = SubResource("RectangleShape2D_ncg1j")
 
 [node name="Camera2D" parent="." unique_id=712204054 instance=ExtResource("2_afu10")]
 
-[node name="Child" parent="." unique_id=1062660865 node_paths=PackedStringArray("player") instance=ExtResource("2_6n652")]
-position = Vector2(491, 503)
-player = NodePath("../Player")
-
 [node name="DropArea" type="Area2D" parent="." unique_id=263626825]
 position = Vector2(62, 544)
 
@@ -83,8 +78,7 @@ color = Color(0.26768064, 0.72441876, 0, 1)
 scale = Vector2(6.055, 6.055)
 shape = SubResource("RectangleShape2D_hm8rx")
 
-[node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("4_l38h5")]
-position = Vector2(719, 451)
-target = NodePath("../Player")
+[node name="OneWayPlatform" parent="." unique_id=1290947215 instance=ExtResource("3_afu10")]
+position = Vector2(499, 493)
 
 [connection signal="body_entered" from="DropArea" to="Player" method="_on_drop_off_enter"]
