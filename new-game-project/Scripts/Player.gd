@@ -29,9 +29,6 @@ var LookX = 1
 #endregion
 #TODO: Coyote Time
 #TODO: Jump buffer
-#TODO: Damage feedback
-#TODO: Death
-#TODO: I-frames
 
 @export var maxHealth := 5
 @onready var spriteAnim = $AnimatedSprite2D
@@ -42,7 +39,7 @@ var collectedChildren = []
 
 var alive = true
 
-signal GhostDroppedOff()
+signal GhostDroppedOff(ghost : RigidBody2D)
 
 func _ready() -> void:
 	health = maxHealth
@@ -152,9 +149,9 @@ func _on_drop_off_enter(body: Node2D) -> void:
 				continue
 			i.saved = true
 			i.Save()
-		GhostDroppedOff.emit()
-		collectedChildren.clear()
-	
+			GhostDroppedOff.emit(i)
+
+
 func AnimateIframes():
 	var flashInterval:float = 0.25
 	var flashPoint:float = fmod(i_frames.time_left, flashInterval)

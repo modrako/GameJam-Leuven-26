@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://w7ag3hhdaqv3" path="res://Sprites/spritesheet_ghost_children.png" id="17_2w5on"]
 [ext_resource type="Script" uid="uid://sy4j5ft4xcr0" path="res://Scripts/UIManager.gd" id="17_sxkr1"]
 [ext_resource type="Texture2D" uid="uid://cptdtxjy3tdm3" path="res://Sprites/viget.png" id="18_346fj"]
+[ext_resource type="Script" uid="uid://p0qf2ar7hp6l" path="res://Scripts/dropArea.gd" id="18_jyqft"]
+[ext_resource type="Texture2D" uid="uid://dipkecl5j001m" path="res://Sprites/door_closed.png" id="19_3tgeq"]
+[ext_resource type="Texture2D" uid="uid://dkfojbhuud83i" path="res://Sprites/door_open.png" id="20_3tgeq"]
 [ext_resource type="PackedScene" uid="uid://ccaw6504xb523" path="res://Objects/OneWayPlatform.tscn" id="21_fq0cl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idj7w"]
@@ -411,6 +414,7 @@ terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_idj7w")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32o"]
+size = Vector2(20, 26.680435)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1n87"]
 atlas = ExtResource("17_2w5on")
@@ -479,7 +483,7 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=877318733]
 script = ExtResource("1_fq0cl")
-enemyPlan = Array[int]([2, 1, 0, 0])
+enemyPlan = Array[int]([0, 1, 2, 0])
 
 [node name="Platform" type="Node" parent="." unique_id=1569483858]
 
@@ -534,6 +538,7 @@ navigation_enabled = false
 [node name="Camera2D" parent="." unique_id=712204054 instance=ExtResource("2_kln2b")]
 
 [node name="Player" parent="." unique_id=1841270351 instance=ExtResource("4_rgh2o")]
+z_index = 1
 position = Vector2(560, 547)
 scale = Vector2(0.6, 0.6)
 collision_mask = 1
@@ -799,7 +804,8 @@ centered = false
 
 [node name="DropArea" type="Area2D" parent="." unique_id=1236577294]
 z_index = -1
-position = Vector2(563, 544)
+position = Vector2(453, 486)
+script = ExtResource("18_jyqft")
 
 [node name="ColorRect" type="ColorRect" parent="DropArea" unique_id=1697487223]
 offset_left = -61.0
@@ -810,8 +816,20 @@ scale = Vector2(1.5094633, 1.5094633)
 color = Color(0.26768064, 0.72441876, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea" unique_id=650145144]
-scale = Vector2(6.055, 6.055)
+position = Vector2(-11, 29.774963)
+scale = Vector2(6.0549994, 6.0549994)
 shape = SubResource("RectangleShape2D_jw32o")
+
+[node name="DoorClosed" type="Sprite2D" parent="DropArea" unique_id=1318737500]
+z_index = 1
+scale = Vector2(0.47194782, 0.47194782)
+texture = ExtResource("19_3tgeq")
+
+[node name="DoorOpen" type="Sprite2D" parent="DropArea" unique_id=1500740965]
+visible = false
+z_index = 1
+scale = Vector2(0.47194782, 0.47194782)
+texture = ExtResource("20_3tgeq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1234156944]
 
@@ -932,6 +950,9 @@ horizontal_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/GhostLeft" unique_id=315415879]
 libraries/ = SubResource("AnimationLibrary_0sclb")
 
+[connection signal="GhostDroppedOff" from="Player" to="DropArea" method="_on_player_ghost_dropped_off"]
 [connection signal="GhostDroppedOff" from="Player" to="CanvasLayer/Control" method="_on_player_ghost_dropped_off"]
 [connection signal="child_exiting_tree" from="Ghosts" to="." method="_on_ghosts_child_exiting_tree"]
 [connection signal="body_entered" from="DropArea" to="Player" method="_on_drop_off_enter"]
+[connection signal="body_entered" from="DropArea" to="DropArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DropArea" to="DropArea" method="_on_body_exited"]

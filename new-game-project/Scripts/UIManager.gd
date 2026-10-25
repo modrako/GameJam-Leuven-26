@@ -17,7 +17,8 @@ func _process(delta: float) -> void:
 	ghost_left.text = str(ghosts.get_child_count())
 	
 	
-func _on_player_ghost_dropped_off() -> void:
+@warning_ignore("unused_parameter")
+func _on_player_ghost_dropped_off(ghost : RigidBody2D) -> void:
 	
 	animation_player.play("Show")
 	
