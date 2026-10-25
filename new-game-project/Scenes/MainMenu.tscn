@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://docdddgtne674"]
+
+[ext_resource type="Script" uid="uid://40w2rt84x5j0" path="res://Scripts/MainMenu.gd" id="1_df05h"]
+[ext_resource type="Texture2D" uid="uid://dud8jx33naaeg" path="res://Sprites/room8.png" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://cptdtxjy3tdm3" path="res://Sprites/viget.png" id="2_853f1"]
+[ext_resource type="Texture2D" uid="uid://bfq64itod75ot" path="res://Sprites/grabber.png" id="3_8saeu"]
+[ext_resource type="Theme" uid="uid://c4gt842kkgnip" path="res://UiTheme.tres" id="4_ghw46"]
+
+[sub_resource type="Environment" id="Environment_nwlwb"]
+background_mode = 3
+glow_intensity = 0.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_kcp1i"]
+
+[sub_resource type="Compositor" id="Compositor_o1n87"]
+
+[sub_resource type="Gradient" id="Gradient_ghw46"]
+offsets = PackedFloat32Array(0, 0.9851485)
+colors = PackedColorArray(0, 0, 0, 0.78431374, 0, 0, 0, 0.2784314)
+
+[node name="Control" type="Control" unique_id=1784792173]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_df05h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=716771420]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_tt5f1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=436387335]
+environment = SubResource("Environment_nwlwb")
+camera_attributes = SubResource("CameraAttributesPractical_kcp1i")
+compositor = SubResource("Compositor_o1n87")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1319077305]
+position = Vector2(580, 709)
+amount = 100
+texture = ExtResource("3_8saeu")
+lifetime = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(580, 1)
+gravity = Vector2(0, -300)
+angle_max = 180.5
+scale_amount_min = 0.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_ghw46")
+
+[node name="TextureRect2" type="TextureRect" parent="CPUParticles2D" unique_id=1304633993]
+self_modulate = Color(1, 1, 1, 0.4862745)
+offset_left = -580.0
+offset_top = -709.0
+offset_right = 572.36
+offset_bottom = -61.0
+texture = ExtResource("2_853f1")
+
+[node name="BPlay" type="Button" parent="." unique_id=2099072067]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -262.0
+offset_right = 298.0
+offset_bottom = -170.0
+grow_vertical = 0
+theme = ExtResource("4_ghw46")
+theme_override_font_sizes/font_size = 72
+text = "Play"
+
+[node name="BExit" type="Button" parent="." unique_id=889952495]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = -153.0
+offset_right = 199.0
+offset_bottom = -91.0
+grow_vertical = 0
+theme = ExtResource("4_ghw46")
+text = "Exit"
+
+[node name="Label" type="Label" parent="." unique_id=1283955558]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 34.0
+offset_right = 1124.0
+offset_bottom = 409.0
+theme = ExtResource("4_ghw46")
+text = "Harvest Mansion
+"
+
+[node name="Label2" type="Label" parent="Label" unique_id=537066770]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 109.0
+offset_right = 1486.0
+offset_bottom = 232.0
+theme = ExtResource("4_ghw46")
+theme_override_font_sizes/font_size = 16
+text = "(working title)"
+
+[connection signal="button_down" from="BPlay" to="." method="_on_b_play_button_down"]
+[connection signal="button_down" from="BExit" to="." method="_on_b_exit_button_down"]

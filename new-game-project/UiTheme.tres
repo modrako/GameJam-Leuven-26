@@ -1,0 +1,43 @@
+[gd_resource type="Theme" format=3 uid="uid://c4gt842kkgnip"]
+
+[ext_resource type="FontFile" uid="uid://jkvwaqnoomch" path="res://Spookyy.otf" id="1_mwo12"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5p70"]
+bg_color = Color(0.4053707, 0.49903983, 0.69875485, 1)
+skew = Vector2(1.5, 0)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxbcn"]
+bg_color = Color(0.57618785, 0.59779716, 0.6728284, 1)
+skew = Vector2(1, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 5
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 5
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwo12"]
+bg_color = Color(0.4236796, 0.45604116, 0.8323744, 1)
+skew = Vector2(3, 0)
+shadow_size = 10
+shadow_offset = Vector2(5, 5)
+
+[resource]
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/constants/outline_size = 16
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_mwo12")
+Button/styles/hover = SubResource("StyleBoxFlat_c5p70")
+Button/styles/normal = SubResource("StyleBoxFlat_fxbcn")
+Button/styles/pressed = SubResource("StyleBoxFlat_mwo12")
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.15686275)
+Label/constants/outline_size = 15
+Label/constants/shadow_offset_x = 5
+Label/constants/shadow_offset_y = 5
+Label/constants/shadow_outline_size = 30
+Label/font_sizes/font_size = 96
+Label/fonts/font = ExtResource("1_mwo12")
