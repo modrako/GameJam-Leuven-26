@@ -126,6 +126,7 @@ frame_progress = 0.5369329
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1833523902]
 stream = ExtResource("3_vlup8")
+volume_db = -10.0
 autoplay = true
 max_distance = 1000.0
 attenuation = 4.0

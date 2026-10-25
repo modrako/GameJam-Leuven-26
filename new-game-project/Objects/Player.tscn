@@ -355,7 +355,7 @@ script = ExtResource("1_n6db0")
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_ncg1j")
 animation = &"Idle"
-frame_progress = 0.76905954
+frame_progress = 0.3761884
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951849645]
 position = Vector2(2.5, 9)
@@ -377,9 +377,11 @@ libraries/ = SubResource("AnimationLibrary_gijnf")
 
 [node name="DeathSfx" type="AudioStreamPlayer" parent="." unique_id=2003581390]
 stream = ExtResource("3_u60sl")
+volume_db = -5.0
 
 [node name="HitSfx" type="AudioStreamPlayer" parent="." unique_id=1148548146]
 stream = ExtResource("4_t1tke")
+volume_db = -5.0
 
 [node name="Walk" type="AudioStreamPlayer" parent="." unique_id=1121963837]
 stream = ExtResource("5_qwxmt")
@@ -389,6 +391,7 @@ autoplay = true
 
 [node name="Jump" type="AudioStreamPlayer" parent="." unique_id=1624223846]
 stream = ExtResource("6_t1tke")
+volume_db = -5.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1550792232]
 current = true
