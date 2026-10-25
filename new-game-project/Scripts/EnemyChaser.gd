@@ -3,6 +3,7 @@ extends Enemy
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @export var enemyVelocity:float = 40
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	if global_position.direction_to(target.position).x >0:
 		animated_sprite_2d.flip_h = true

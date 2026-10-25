@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://45iu1s35reqi" path="res://Objects/Player.tscn" id="1_1vpby"]
 [ext_resource type="PackedScene" uid="uid://dno2lcgn0o41e" path="res://Objects/child.tscn" id="2_6n652"]
 [ext_resource type="PackedScene" uid="uid://xq6bx25s052t" path="res://Objects/Camera.tscn" id="2_afu10"]
+[ext_resource type="PackedScene" uid="uid://2jiv4jnq2lkl" path="res://Objects/EnemyChaser.tscn" id="4_l38h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3r0k"]
 size = Vector2(40, 40)
@@ -19,6 +20,7 @@ metadata/_edit_lock_ = true
 position = Vector2(216, 505)
 scale = Vector2(0.6, 0.6)
 collision_mask = 1
+health = 1
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1452357883]
 position = Vector2(1187, 627.99994)
@@ -80,5 +82,9 @@ color = Color(0.26768064, 0.72441876, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea" unique_id=680661696]
 scale = Vector2(6.055, 6.055)
 shape = SubResource("RectangleShape2D_hm8rx")
+
+[node name="EnemyChaser" parent="." unique_id=683529726 node_paths=PackedStringArray("target") instance=ExtResource("4_l38h5")]
+position = Vector2(719, 451)
+target = NodePath("../Player")
 
 [connection signal="body_entered" from="DropArea" to="Player" method="_on_drop_off_enter"]
